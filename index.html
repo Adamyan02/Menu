@@ -6,27 +6,20 @@
 <title>Menua</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-body { margin:0; font-family:'Inter', sans-serif; background:#0f0f10; color:#f5f5f5; }
-header { text-align:center; padding:18px; font-family:'Playfair Display', serif; font-size:24px; position:relative; border-bottom:1px solid rgba(255,255,255,0.08); }
-.lang { position:absolute; right:12px; top:12px; }
-.lang button { background:transparent; border:1px solid rgba(255,255,255,0.3); color:white; padding:6px 10px; margin-left:5px; border-radius:20px; cursor:pointer; transition:0.3s; font-size:12px; }
-.lang button:hover { background:white; color:black; }
-.tabs { display:flex; justify-content:center; flex-wrap:wrap; gap:8px; padding:12px; }
-.tab { padding:8px 14px; border-radius:20px; background:rgba(255,255,255,0.05); cursor:pointer; transition:all 0.25s ease; font-size:13px; backdrop-filter: blur(6px); }
-.tab.active { background:linear-gradient(135deg,#c9a96e,#a67c3b); color:black; font-weight:500; transform:scale(1.05); }
-.container { padding:15px; max-width:700px; margin:auto; }
-.menu { display:none; animation:fadeIn 0.4s ease; }
-.menu.active { display:block; }
-@keyframes fadeIn { from { opacity:0; transform:translateY(10px);} to { opacity:1; transform:translateY(0);} }
-.category { margin-top:20px; }
-.category h2 { font-family:'Playfair Display', serif; font-size:18px; margin-bottom:10px; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:5px; }
-.item { background:rgba(255,255,255,0.03); padding:12px; border-radius:10px; margin-bottom:8px; display:flex; flex-direction:column; transition:0.2s; cursor:pointer; position:relative; }
-.item:active { transform:scale(0.98); }
-.item-name { font-weight:500; font-size:15px; }
-.item-desc { font-size:12px; opacity:0; margin-top:5px; transition:0.25s; white-space: pre-line; }
-.item.active .item-desc { opacity:0.8; }
-.price { font-weight:500; color:#c9a96e; font-size:14px; }
-@media (max-width:480px) { header{font-size:20px;} .tab{font-size:12px;padding:7px 12px;} .item-name{font-size:14px;} .price{font-size:13px;} }
+body{margin:0;font-family:'Inter',sans-serif;background:#0f0f10;color:#f5f5f5}
+header{text-align:center;padding:18px;font-family:'Playfair Display';font-size:24px;position:relative}
+.lang{position:absolute;right:12px;top:12px}
+.lang button{background:transparent;border:1px solid rgba(255,255,255,.3);color:white;padding:6px 10px;border-radius:20px}
+.tabs{display:flex;justify-content:center;gap:8px;padding:12px;flex-wrap:wrap}
+.tab{padding:8px 14px;border-radius:20px;background:rgba(255,255,255,.05);cursor:pointer}
+.tab.active{background:#c9a96e;color:black}
+.container{padding:15px;max-width:700px;margin:auto}
+.menu{display:none}
+.menu.active{display:block}
+.category h2{margin-top:20px;font-family:'Playfair Display'}
+.item{background:rgba(255,255,255,.04);margin:6px 0;padding:10px;border-radius:10px;cursor:pointer}
+.item-desc{opacity:0;font-size:12px;margin-top:5px}
+.item.active .item-desc{opacity:1}
 </style>
 </head>
 <body>
@@ -43,56 +36,65 @@ header { text-align:center; padding:18px; font-family:'Playfair Display', serif;
 <div class="tab" onclick="showMenu('hotel', event)" data-ru="Меню гостиницы" data-en="Hotel Menu">Меню гостиницы</div>
 </div>
 <div class="container">
+
 <div id="lounge" class="menu active">
-  <div class="category">
-    <h2 data-ru="Бургеры и сэндвичи" data-en="Burgers & Sandwiches">Бургеры и сэндвичи</h2>
-    <div class="item" onclick="toggleDesc(this)"><div class="item-name" data-ru="Бургер (говяжий)" data-en="Beef Burger">Бургер (говяжий)</div><div class="item-desc" data-ru="275 гр." data-en="275g">275 гр.</div></div>
-    <div class="item" onclick="toggleDesc(this)"><div class="item-name" data-ru="Сэндвич" data-en="Sandwich">Сэндвич</div><div class="item-desc" data-ru="143гр." data-en="143g">143гр.</div></div>
-  </div>
-  <div class="category">
-    <h2 data-ru="Картофель" data-en="Potatoes">Картофель</h2>
-    <div class="item" onclick="toggleDesc(this)"><div class="item-name" data-ru="Картошка фри / по-деревенски" data-en="French Fries / Rustic">Картошка фри / по-деревенски</div><div class="item-desc" data-ru="150гр" data-en="150g">150гр</div></div>
-  </div>
-  <div class="category">
-    <h2 data-ru="Паста" data-en="Pasta">Паста</h2>
-    <div class="item" onclick="toggleDesc(this)"><div class="item-name" data-ru="Паста Карбонара" data-en="Pasta Carbonara">Паста Карбонара</div><div class="item-desc" data-ru="245 гр." data-en="245g">245 гр.</div></div>
-    <div class="item" onclick="toggleDesc(this)"><div class="item-name" data-ru="Фетучини с курицей и грибами" data-en="Fettuccine with Chicken & Mushrooms">Фетучини с курицей и грибами</div><div class="item-desc" data-ru="285 гр." data-en="285g">285 гр.</div></div>
-    <div class="item" onclick="toggleDesc(this)"><div class="item-name" data-ru="Паста с морепродуктами в соусе песто" data-en="Seafood Pasta with Pesto Sauce">Паста с морепродуктами в соусе песто</div><div class="item-desc" data-ru="250гр." data-en="250g">250гр.</div></div>
-  </div>
-  <div class="category">
-    <h2 data-ru="Сыры" data-en="Cheeses">Сыры</h2>
-    <div class="item" onclick="toggleDesc(this)"><div class="item-name" data-ru="Сырная тарелка (большая)" data-en="Cheese Platter Large">Сырная тарелка (большая)</div><div class="item-desc" data-ru="370гр. - сыр-косичка, сулугуни, дор-блю, маасдам, пармезан, мраморный, мед" data-en="370g - braided cheese, suluguni, dor blue, maasdam, parmesan, marble, honey">370гр. - сыр-косичка, сулугуни, дор-блю, маасдам, пармезан, мраморный, мед</div></div>
-    <div class="item" onclick="toggleDesc(this)"><div class="item-name" data-ru="Сырная тарелка (маленькая)" data-en="Cheese Platter Small">Сырная тарелка (маленькая)</div><div class="item-desc" data-ru="180гр. - сыр-косичка, сулугуни, дор-блю, маасдам, пармезан, мраморный, мед" data-en="180g - braided cheese, suluguni, dor blue, maasdam, parmesan, marble, honey">180гр. - сыр-косичка, сулугуни, дор-блю, маасдам, пармезан, мраморный, мед</div></div>
-  </div>
-  <div class="category">
-    <h2 data-ru="Мясные блюда" data-en="Meat Dishes">Мясные блюда</h2>
-    <div class="item" onclick="toggleDesc(this)"><div class="item-name" data-ru="Мясная тарелка большая" data-en="Meat Platter Large">Мясная тарелка большая</div><div class="item-desc" data-ru="320 гр. - колбаса с/к, карбонат свинина, карбонат говядина, суджух, бастурма, сало в Самаре, микро зелень, оливки, маслины" data-en="320g - smoked sausage, pork carbonade, beef carbonade, sujukh, basturma, lard from Samara, microgreens, olives, olives">320 гр. - колбаса с/к, карбонат свинина, карбонат говядина, суджух, бастурма, сало в Самаре, микро зелень, оливки, маслины</div></div>
-    <div class="item" onclick="toggleDesc(this)"><div class="item-name" data-ru="Мясная маленькая" data-en="Meat Platter Small">Мясная маленькая</div><div class="item-desc" data-ru="180гр. - колбаса с/к, карбонат свинина, карбонат говядина, суджух, бастурма, сало в Самаре, микро зелень, оливки, маслины" data-en="180g - smoked sausage, pork carbonade, beef carbonade, sujukh, basturma, lard from Samara, microgreens, olives, olives">180гр. - колбаса с/к, карбонат свинина, карбонат говядина, суджух, бастурма, сало в Самаре, микро зелень, оливки, маслины</div></div>
-  </div>
+
+<div class="category"><h2 data-ru="Основное" data-en="Main">Основное</h2>
+<div class="item" onclick="toggleDesc(this)"><div data-ru="Бургер (говяжий)" data-en="Beef Burger">Бургер (говяжий)</div><div class="item-desc" data-ru="275 гр." data-en="275g">275 гр.</div></div>
+<div class="item" onclick="toggleDesc(this)"><div data-ru="Сэндвич" data-en="Sandwich">Сэндвич</div><div class="item-desc" data-ru="143 гр." data-en="143g">143 гр.</div></div>
+<div class="item" onclick="toggleDesc(this)"><div data-ru="Картошка фри / по-деревенски" data-en="French fries / rustic potatoes">Картошка фри / по-деревенски</div><div class="item-desc" data-ru="150 гр." data-en="150g">150 гр.</div></div>
+</div>
+
+<div class="category"><h2 data-ru="Паста" data-en="Pasta">Паста</h2>
+<div class="item" onclick="toggleDesc(this)"><div data-ru="Паста Карбонара" data-en="Carbonara Pasta">Паста Карбонара</div><div class="item-desc" data-ru="245 гр." data-en="245g">245 гр.</div></div>
+<div class="item" onclick="toggleDesc(this)"><div data-ru="Фетучини с курицей и грибами" data-en="Fettuccine with chicken & mushrooms">Фетучини с курицей и грибами</div><div class="item-desc" data-ru="285 гр." data-en="285g">285 гр.</div></div>
+<div class="item" onclick="toggleDesc(this)"><div data-ru="Паста с морепродуктами в соусе песто" data-en="Seafood pasta with pesto">Паста с морепродуктами в соусе песто</div><div class="item-desc" data-ru="250 гр." data-en="250g">250 гр.</div></div>
+</div>
+
+<div class="category"><h2 data-ru="Сыры" data-en="Cheese">Сыры</h2>
+<div class="item" onclick="toggleDesc(this)"><div data-ru="Сырная тарелка (большая)" data-en="Cheese platter large">Сырная тарелка (большая)</div><div class="item-desc" data-ru="370 гр. — сыр-косичка, сулугуни, дор-блю, маасдам, пармезан, мраморный, мед" data-en="370g — braided cheese, suluguni, dor blue, maasdam, parmesan, marble cheese, honey">370 гр.</div></div>
+<div class="item" onclick="toggleDesc(this)"><div data-ru="Сырная тарелка (маленькая)" data-en="Cheese platter small">Сырная тарелка (маленькая)</div><div class="item-desc" data-ru="180 гр. — сыр-косичка, сулугуни, дор-блю, маасдам, пармезан, мраморный, мед" data-en="180g — braided cheese, suluguni, dor blue, maasdam, parmesan, marble cheese, honey">180 гр.</div></div>
+</div>
+
+<div class="category"><h2 data-ru="Мясо" data-en="Meat">Мясо</h2>
+<div class="item" onclick="toggleDesc(this)"><div data-ru="Мясная тарелка большая" data-en="Meat platter large">Мясная тарелка большая</div><div class="item-desc" data-ru="320 гр. — колбаса с/к, карбонат свинина, карбонат говядина, суджух, бастурма, сало, микро зелень, оливки" data-en="320g — smoked sausage, pork, beef, sujuk, basturma, lard, microgreens, olives">320 гр.</div></div>
+<div class="item" onclick="toggleDesc(this)"><div data-ru="Мясная маленькая" data-en="Meat platter small">Мясная маленькая</div><div class="item-desc" data-ru="180 гр. — колбаса с/к, карбонат свинина, карбонат говядина, суджух, бастурма, сало, микро зелень, оливки" data-en="180g — smoked sausage, pork, beef, sujuk, basturma, lard, microgreens, olives">180 гр.</div></div>
+</div>
+
+<div class="category"><h2 data-ru="Закуски" data-en="Snacks">Закуски</h2>
+<div class="item" onclick="toggleDesc(this)"><div data-ru="Креветки в кляре" data-en="Fried shrimps">Креветки</div><div class="item-desc" data-ru="200 гр." data-en="200g">200 гр.</div></div>
+<div class="item" onclick="toggleDesc(this)"><div data-ru="Наггетсы" data-en="Nuggets">Наггетсы</div><div class="item-desc" data-ru="125 гр." data-en="125g">125 гр.</div></div>
+<div class="item" onclick="toggleDesc(this)"><div data-ru="Кольца кальмара" data-en="Calamari rings">Кальмары</div><div class="item-desc" data-ru="120 гр." data-en="120g">120 гр.</div></div>
+<div class="item" onclick="toggleDesc(this)"><div data-ru="Сыр в панировке" data-en="Breaded cheese">Сыр</div><div class="item-desc" data-ru="—" data-en="—">—</div></div>
+</div>
+
+<div class="category"><h2 data-ru="Салаты" data-en="Salads">Салаты</h2>
+<div class="item" onclick="toggleDesc(this)"><div data-ru="Цезарь" data-en="Caesar salad">Цезарь</div><div class="item-desc" data-ru="курица / лосось / креветка" data-en="chicken / salmon / shrimp">—</div></div>
+<div class="item" onclick="toggleDesc(this)"><div data-ru="Салат с баклажанами" data-en="Eggplant salad">Салат</div><div class="item-desc" data-ru="—" data-en="—">—</div></div>
+<div class="item" onclick="toggleDesc(this)"><div data-ru="Греческий" data-en="Greek salad">Греческий</div><div class="item-desc" data-ru="—" data-en="—">—</div></div>
+</div>
+
+<div class="category"><h2 data-ru="Пицца" data-en="Pizza">Пицца</h2>
+<div class="item" onclick="toggleDesc(this)"><div data-ru="Пицца Менуа" data-en="Menua pizza">Пицца Менуа</div><div class="item-desc" data-ru="—" data-en="—">—</div></div>
+<div class="item" onclick="toggleDesc(this)"><div data-ru="Пицца ветчина-грибы" data-en="Ham & mushroom pizza">Пицца ветчина-грибы</div><div class="item-desc">—</div></div>
+<div class="item" onclick="toggleDesc(this)"><div data-ru="Пицца цезарь" data-en="Caesar pizza">Пицца цезарь</div><div class="item-desc">—</div></div>
+<div class="item" onclick="toggleDesc(this)"><div data-ru="Пицца четыре сыра" data-en="Four cheese pizza">Пицца четыре сыра</div><div class="item-desc">—</div></div>
+</div>
+
+<div class="category"><h2 data-ru="Сеты" data-en="Sets">Сеты</h2>
+<div class="item" onclick="toggleDesc(this)"><div data-ru="Сет №1" data-en="Set #1">Сет №1</div><div class="item-desc" data-ru="сухарики, кальмар, крылышки, сыр" data-en="croutons, calamari, wings, cheese">—</div></div>
+<div class="item" onclick="toggleDesc(this)"><div data-ru="Сет №2" data-en="Set #2">Сет №2</div><div class="item-desc" data-ru="фри, наггетсы, крылышки" data-en="fries, nuggets, wings">—</div></div>
+<div class="item" onclick="toggleDesc(this)"><div data-ru="Мясной сет" data-en="Meat set">Мясной сет</div><div class="item-desc" data-ru="крылышки, колбаски, картошка, сыр" data-en="wings, sausages, fries, cheese">—</div></div>
+</div>
+
+</div>
+
+</div>
+
 <script>
-function showMenu(menuId, event) {
-  const menus = document.querySelectorAll('.menu');
-  const tabs = document.querySelectorAll('.tab');
-  menus.forEach(menu => menu.classList.remove('active'));
-  tabs.forEach(tab => tab.classList.remove('active'));
-  const selectedMenu = document.getElementById(menuId);
-  if(selectedMenu) selectedMenu.classList.add('active');
-  if(event && event.target) event.target.classList.add('active');
-}
-function setLang(lang) {
-  document.querySelectorAll('[data-ru]').forEach(el => {
-    el.textContent = el.getAttribute('data-' + lang);
-  });
-}
-function toggleDesc(item) {
-  if(item.timer) clearTimeout(item.timer);
-  item.classList.toggle('active');
-  if(item.classList.contains('active')) {
-    item.timer = setTimeout(() => {
-      item.classList.remove('active');
-    }, 5000);
-  }
-}
+function showMenu(id,e){document.querySelectorAll('.menu').forEach(m=>m.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));if(e)e.target.classList.add('active');}
+function setLang(l){document.querySelectorAll('[data-ru]').forEach(el=>el.textContent=el.getAttribute('data-'+l));}
+function toggleDesc(el){if(el.timer)clearTimeout(el.timer);el.classList.toggle('active');if(el.classList.contains('active')){el.timer=setTimeout(()=>el.classList.remove('active'),5000)}}
 </script>
 </body>
 </html>
