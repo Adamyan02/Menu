@@ -4,173 +4,383 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Menua</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-body{margin:0;font-family:'Inter',sans-serif;background:#0f0f10;color:#f5f5f5}
-header{text-align:center;padding:18px;font-family:'Playfair Display';font-size:24px;position:relative}
-.lang{position:absolute;right:12px;top:12px}
-.lang button{background:transparent;border:1px solid rgba(255,255,255,.3);color:white;padding:6px 10px;border-radius:20px}
-.tabs{display:flex;justify-content:center;gap:8px;padding:12px;flex-wrap:wrap}
-.tab{padding:8px 14px;border-radius:20px;background:rgba(255,255,255,.05);cursor:pointer}
-.tab.active{background:#c9a96e;color:black}
-.container{padding:15px;max-width:700px;margin:auto}
-.menu{display:none}
-.menu.active{display:block}
-.category h2{margin-top:20px;font-family:'Playfair Display'}
-.item{background:rgba(255,255,255,.04);margin:6px 0;padding:10px;border-radius:10px;cursor:pointer}
-.item-desc{opacity:0;font-size:12px;margin-top:5px}
-.item.active .item-desc{opacity:1}
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:radial-gradient(circle at top,#242424 0%,#0b0b0b 55%,#000 100%);
+color:#fff;
+padding:22px 18px 40px;
+min-height:100vh;
+}
+
+h1{
+text-align:center;
+font-size:42px;
+margin-bottom:28px;
+font-weight:700;
+letter-spacing:3px;
+color:#f1d19a;
+text-shadow:0 0 18px rgba(201,169,110,0.35);
+}
+
+.lang-switch{
+display:flex;
+justify-content:center;
+gap:10px;
+margin-bottom:20px;
+}
+
+.lang-switch button,
+.tab{
+background:rgba(255,255,255,0.06);
+color:#f5f5f5;
+border:1px solid rgba(201,169,110,0.25);
+padding:14px 20px;
+border-radius:18px;
+cursor:pointer;
+font-size:14px;
+font-weight:600;
+transition:0.35s;
+backdrop-filter:blur(12px);
+box-shadow:0 8px 24px rgba(0,0,0,0.35);
+}
+
+.tab.active,
+.lang-switch button:hover{
+background:linear-gradient(135deg,#f1d19a,#c9a96e);
+color:#111;
+transform:translateY(-2px);
+box-shadow:0 10px 28px rgba(201,169,110,0.35);
+}
+
+.tabs{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:12px;
+margin-bottom:30px;
+padding:0 6px;
+}
+
+.menu{
+display:none;
+animation:fade .3s ease;
+}
+
+.menu.active{
+display:block;
+}
+
+.category{
+margin-bottom:34px;
+padding:18px;
+border-radius:28px;
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.04);
+backdrop-filter:blur(10px);
+box-shadow:0 12px 32px rgba(0,0,0,0.28);
+}
+
+.category h2{
+color:#e6c48d;
+margin-bottom:18px;
+font-size:24px;
+font-weight:700;
+letter-spacing:1px;
+}
+
+.item{
+background:linear-gradient(145deg,rgba(255,255,255,0.06),rgba(255,255,255,0.03));
+border-radius:22px;
+padding:18px;
+margin-bottom:14px;
+cursor:pointer;
+transition:0.35s;
+border:1px solid rgba(201,169,110,0.12);
+box-shadow:0 10px 26px rgba(0,0,0,0.28);
+}
+
+.item:hover{
+transform:translateY(-3px) scale(1.01);
+box-shadow:0 14px 34px rgba(201,169,110,0.12);
+border-color:rgba(201,169,110,0.3);
+}
+
+.item-title{
+font-size:17px;
+font-weight:700;
+color:#fff;
+letter-spacing:0.3px;
+}
+
+.item-desc{
+display:none;
+margin-top:14px;
+color:#d7c29a;
+font-size:14px;
+line-height:1.7;
+padding-top:12px;
+border-top:1px solid rgba(201,169,110,0.15);
+opacity:0.95;
+}
+
+.item-desc.show{
+display:block;
+}
+
+@keyframes fade{
+from{opacity:0;transform:translateY(10px)}
+to{opacity:1;transform:translateY(0)}
+}
 </style>
 </head>
 <body>
-<header>
-<span data-ru="Менуа" data-en="Menua">Менуа</span>
-<div class="lang">
-<button onclick="setLang('ru')">RU</button>
-<button onclick="setLang('en')">EN</button>
+
+<h1 id="logo">Менуа</h1>
+
+<div class="lang-switch">
+<button onclick="switchLang('ru')">RU</button>
+<button onclick="switchLang('en')">EN</button>
 </div>
-</header>
+
 <div class="tabs">
-<div class="tab active" onclick="showMenu('lounge', event)" data-ru="Меню Лаундж-бара" data-en="Lounge Bar Menu">Меню Лаундж-бара</div>
-<div class="tab" onclick="showMenu('preorder', event)" data-ru="Меню для предзаказа" data-en="Pre-Order Menu">Меню для предзаказа</div>
-<div class="tab" onclick="showMenu('hotel', event)" data-ru="Меню гостиницы" data-en="Hotel Menu">Меню гостиницы</div>
+<button class="tab active" onclick="showMenu('lounge', this)" id="tab-lounge">Меню Лаундж-бара</button>
+<button class="tab" onclick="showMenu('preorder', this)" id="tab-preorder">Меню для предзаказа</button>
+<button class="tab" onclick="showMenu('hotel', this)" id="tab-hotel">Меню гостиницы</button>
 </div>
-<div class="container">
 
 <div id="lounge" class="menu active">
 
 <div class="category">
-<h2 data-ru="Сеты" data-en="Sets">Сеты</h2>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Мясная нарезка" data-en="Meat platter">Мясная нарезка</div><div class="item-desc" data-ru="320 гр" data-en="320g">320 гр</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Мясная нарезка" data-en="Meat platter">Мясная нарезка</div><div class="item-desc" data-ru="195 гр" data-en="195g">195 гр</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Сырная тарелка" data-en="Cheese platter">Сырная тарелка</div><div class="item-desc" data-ru="370 гр" data-en="370g">370 гр</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Сырная тарелка" data-en="Cheese platter">Сырная тарелка</div><div class="item-desc" data-ru="180 гр" data-en="180g">180 гр</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Пивной сет 1" data-en="Beer set 1">Пивной сет 1</div><div class="item-desc" data-ru="350 гр" data-en="350g">350 гр</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Пивной сет 2" data-en="Beer set 2">Пивной сет 2</div><div class="item-desc" data-ru="850 гр" data-en="850g">850 гр</div></div>
+<h2 id="pizza-title">Пицца</h2>
+
+<div class="item" onclick="toggleDesc(this)">
+<div class="item-title">Пицца 4 сыра</div>
+<div class="item-desc" data-ru="500гр: пармезан, Чеддер, дор блю, моцарелла, соус сырный/сливочный" data-en="500g: parmesan, cheddar, dor blue, mozzarella, cheese sauce"></div>
+</div>
+
+<div class="item" onclick="toggleDesc(this)">
+<div class="item-title">Пицца ветчина/грибы</div>
+<div class="item-desc" data-ru="620гр: соус томатный, моцарелла, ветчина, шампиньоны, петрушка" data-en="620g: tomato sauce, mozzarella, ham, mushrooms, parsley"></div>
+</div>
+
+<div class="item" onclick="toggleDesc(this)">
+<div class="item-title">Пицца Маргарита</div>
+<div class="item-desc" data-ru="помидоры, сыр, зелень" data-en="tomatoes, cheese, greens"></div>
+</div>
+
 </div>
 
 <div class="category">
-<h2 data-ru="Салаты" data-en="Salads">Салаты</h2>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="С хрустящими баклажанами" data-en="Crispy eggplant salad">С хрустящими баклажанами</div><div class="item-desc" data-ru="220 гр" data-en="220g">220 гр</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Греческий" data-en="Greek salad">Греческий</div><div class="item-desc" data-ru="175 гр" data-en="175g">175 гр</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Цезарь с курицей" data-en="Chicken Caesar">Цезарь с курицей</div><div class="item-desc" data-ru="220 гр" data-en="220g">220 гр</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Цезарь с семгой" data-en="Salmon Caesar">Цезарь с семгой</div><div class="item-desc" data-ru="220 гр" data-en="220g">220 гр</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Цезарь с креветками" data-en="Shrimp Caesar">Цезарь с креветками</div><div class="item-desc" data-ru="220 гр" data-en="220g">220 гр</div></div>
+<h2 id="sets-title">Сеты</h2>
+
+<div class="item" onclick="toggleDesc(this)">
+<div class="item-title">Сырная нарезка</div>
+<div class="item-desc" data-ru="370гр: сыр косичка, сулугуни, дор-блю, маасдам, пармезан, мраморный, мед, орех, виноград" data-en="370g: cheese braid, suluguni, dor blue, maasdam, parmesan, marble cheese, honey, nuts, grapes"></div>
+</div>
+
+<div class="item" onclick="toggleDesc(this)">
+<div class="item-title">Сырная нарезка</div>
+<div class="item-desc" data-ru="200гр: сыр косичка, сулугуни, дор-блю, маасдам, пармезан, мраморный, мед, орех, виноград" data-en="200g: cheese braid, suluguni, dor blue, maasdam, parmesan, marble cheese, honey, nuts, grapes"></div>
+</div>
+
+<div class="item" onclick="toggleDesc(this)">
+<div class="item-title">Мясная нарезка</div>
+<div class="item-desc" data-ru="320гр: колбаса с/к, карбонад свинина, карбонад говядина, суджук, бастурма, оливки/маслины" data-en="320g: smoked sausage, pork carbonate, beef carbonate, sujuk, basturma, olives"></div>
+</div>
+
+<div class="item" onclick="toggleDesc(this)">
+<div class="item-title">Мясная нарезка</div>
+<div class="item-desc" data-ru="200гр: колбаса с/к, карбонад свинина, карбонад говядина, суджук, бастурма, оливки/маслины" data-en="200g: smoked sausage, pork carbonate, beef carbonate, sujuk, basturma, olives"></div>
+</div>
+
+<div class="item" onclick="toggleDesc(this)">
+<div class="item-title">Пивной сет с чесночным соусом</div>
+<div class="item-desc" data-ru="350гр: кольца кальмара, чесночные гренки, наггетсы, сырные палочки, фри" data-en="350g: calamari rings, garlic croutons, nuggets, cheese sticks, fries"></div>
+</div>
+
+<div class="item" onclick="toggleDesc(this)">
+<div class="item-title">Пивной сет с креветками</div>
+<div class="item-desc" data-ru="850гр: креветки, кольца кальмара, фри, наггетсы, крылья барбекю, соус, колбаски" data-en="850g: shrimps, calamari rings, fries, nuggets, BBQ wings, sauce, sausages"></div>
+</div>
+
 </div>
 
 <div class="category">
-<h2 data-ru="Паста" data-en="Pasta">Паста</h2>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Карбонара" data-en="Carbonara">Карбонара</div><div class="item-desc" data-ru="245 гр" data-en="245g">245 гр</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Феттучини с курицей и грибами" data-en="Fettuccine with chicken and mushrooms">Феттучини с курицей и грибами</div><div class="item-desc" data-ru="285 гр" data-en="285g">285 гр</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Феттучини с говядиной и грибами" data-en="Fettuccine with beef and mushrooms">Феттучини с говядиной и грибами</div><div class="item-desc" data-ru="285 гр" data-en="285g">285 гр</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Паста с морепродуктами в соусе песто" data-en="Seafood pasta with pesto sauce">Паста с морепродуктами в соусе песто</div><div class="item-desc" data-ru="250 гр" data-en="250g">250 гр</div></div>
+<h2 id="salads-title">Салаты</h2>
+
+<div class="item" onclick="toggleDesc(this)">
+<div class="item-title">Цезарь с курицей</div>
+<div class="item-desc" data-ru="220гр: айсберг, куриное филе, яйцо перепелиное, черри, крутоны, пармезан, соус цезарь" data-en="220g: iceberg lettuce, chicken fillet, quail egg, cherry tomatoes, croutons, parmesan, Caesar sauce"></div>
+</div>
+
+<div class="item" onclick="toggleDesc(this)">
+<div class="item-title">Цезарь с семгой</div>
+<div class="item-desc" data-ru="220гр: айсберг, семга, яйцо перепелиное, черри, крутоны, пармезан, соус цезарь" data-en="220g: iceberg lettuce, salmon, quail egg, cherry tomatoes, croutons, parmesan, Caesar sauce"></div>
+</div>
+
+<div class="item" onclick="toggleDesc(this)">
+<div class="item-title">Цезарь с креветкой</div>
+<div class="item-desc" data-ru="220гр: айсберг, креветки, яйцо перепелиное, черри, крутоны, пармезан, соус цезарь" data-en="220g: iceberg lettuce, shrimps, quail egg, cherry tomatoes, croutons, parmesan, Caesar sauce"></div>
+</div>
+
+<div class="item" onclick="toggleDesc(this)">
+<div class="item-title">Салат с хрустящими баклажанами</div>
+<div class="item-desc" data-ru="220гр: баклажаны, черри, сыр Фета, кунжут, соус к/с, микс-салат" data-en="220g: eggplants, cherry tomatoes, feta cheese, sesame, sweet chili sauce, mixed salad"></div>
+</div>
+
+<div class="item" onclick="toggleDesc(this)">
+<div class="item-title">Греческий</div>
+<div class="item-desc" data-ru="175гр: микс-салат, огурец, помидор, перец болгарский, маслины, сыр Фета" data-en="175g: mixed salad, cucumber, tomato, bell pepper, olives, feta cheese"></div>
+</div>
+
 </div>
 
 <div class="category">
-<h2 data-ru="Основные блюда" data-en="Main dishes">Основные блюда</h2>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Бургер" data-en="Burger">Бургер</div><div class="item-desc" data-ru="275 гр" data-en="275g">275 гр</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Сэндвич" data-en="Sandwich">Сэндвич</div><div class="item-desc" data-ru="150 гр" data-en="150g">150 гр</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Крылья барбекю" data-en="BBQ wings">Крылья барбекю</div><div class="item-desc" data-ru="120 гр" data-en="120g">120 гр</div></div>
+<h2 id="pasta-title">Паста</h2>
+
+<div class="item" onclick="toggleDesc(this)">
+<div class="item-title">Карбонара</div>
+<div class="item-desc" data-ru="245гр: паста, бекон, яичный желток, сливки, пармезан" data-en="245g: pasta, bacon, egg yolk, cream, parmesan"></div>
+</div>
+
+<div class="item" onclick="toggleDesc(this)">
+<div class="item-title">Феттучини с курицей и грибами</div>
+<div class="item-desc" data-ru="285гр: паста, куриное филе, шампиньоны, сливки, сыр пармезан" data-en="285g: pasta, chicken fillet, mushrooms, cream, parmesan cheese"></div>
+</div>
+
+<div class="item" onclick="toggleDesc(this)">
+<div class="item-title">Паста с морепродуктами</div>
+<div class="item-desc" data-ru="250гр: креветки, паста, соус песто, сливки, сыр пармезан" data-en="250g: shrimps, pasta, pesto sauce, cream, parmesan cheese"></div>
+</div>
+
 </div>
 
 <div class="category">
-<h2 data-ru="Закуски" data-en="Snacks">Закуски</h2>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Фри" data-en="French fries">Фри</div><div class="item-desc" data-ru="120 гр" data-en="120g">120 гр</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Картофель по-деревенски" data-en="Rustic potatoes">Картофель по-деревенски</div><div class="item-desc" data-ru="150 гр" data-en="150g">150 гр</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Нагетсы" data-en="Nuggets">Нагетсы</div><div class="item-desc" data-ru="125 гр" data-en="125g">125 гр</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Креветки в кляре" data-en="Fried shrimps">Креветки в кляре</div><div class="item-desc" data-ru="200 гр" data-en="200g">200 гр</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Кольца кальмара в кляре" data-en="Fried calamari rings">Кольца кальмара в кляре</div><div class="item-desc" data-ru="120 гр" data-en="120g">120 гр</div></div>
+<h2 id="burger-title">Бургеры и сэндвичи</h2>
+
+<div class="item" onclick="toggleDesc(this)">
+<div class="item-title">Бургер</div>
+<div class="item-desc" data-ru="275гр: булочка, соус сырный/барбекю, салат, сыр Чеддер, котлета говяжья, помидор, лук красный, огурец маринованный" data-en="275g: bun, cheese/BBQ sauce, lettuce, cheddar cheese, beef patty, tomato, red onion, pickles"></div>
+</div>
+
+<div class="item" onclick="toggleDesc(this)">
+<div class="item-title">Сэндвич</div>
+<div class="item-desc" data-ru="150гр: хлеб, сыр, ветчина, кетчуп томатный, салат" data-en="150g: bread, cheese, ham, ketchup, lettuce"></div>
+</div>
+
+<div class="item" onclick="toggleDesc(this)">
+<div class="item-title">Крылья барбекю</div>
+<div class="item-desc" data-ru="4шт 200гр" data-en="4 pcs 200g"></div>
+</div>
+
 </div>
 
 <div class="category">
-<h2 data-ru="Пицца" data-en="Pizza">Пицца</h2>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Пицца ветчина/грибы" data-en="Ham & mushroom pizza">Пицца ветчина/грибы</div><div class="item-desc" data-ru="30 см" data-en="30 cm">30 см</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Пицца цезарь" data-en="Caesar pizza">Пицца цезарь</div><div class="item-desc" data-ru="30 см" data-en="30 cm">30 см</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Пицца Менуа" data-en="Menua pizza">Пицца Менуа</div><div class="item-desc" data-ru="30 см" data-en="30 cm">30 см</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Пицца 4 сыра" data-en="Four cheese pizza">Пицца 4 сыра</div><div class="item-desc" data-ru="30 см" data-en="30 cm">30 см</div></div>
+<h2 id="snacks-title">Закуски</h2>
+
+<div class="item" onclick="toggleDesc(this)">
+<div class="item-title">Фри / по-деревенски</div>
+<div class="item-desc" data-ru="120гр / 150гр: картофель, специи, паприка, растительное масло" data-en="120g / 150g: potatoes, spices, paprika, vegetable oil"></div>
 </div>
 
+<div class="item" onclick="toggleDesc(this)">
+<div class="item-title">Наггетсы</div>
+<div class="item-desc" data-ru="6шт 125гр" data-en="6 pcs 125g"></div>
+</div>
+
+<div class="item" onclick="toggleDesc(this)">
+<div class="item-title">Креветки в кляре</div>
+<div class="item-desc" data-ru="5шт 200гр" data-en="5 pcs 200g"></div>
+</div>
+
+<div class="item" onclick="toggleDesc(this)">
+<div class="item-title">Кольца кальмара в кляре</div>
+<div class="item-desc" data-ru="7шт" data-en="7 pcs"></div>
+</div>
+
+<div class="item" onclick="toggleDesc(this)">
+<div class="item-title">Гренки чесночные</div>
+<div class="item-desc" data-ru="8шт 100гр" data-en="8 pcs 100g"></div>
+</div>
+
+</div>
+
+</div>
+
+<div id="preorder" class="menu"> class="menu">
+<h2>Меню для предзаказа</h2>
 </div>
 
 <div id="hotel" class="menu">
-
-<div class="category">
-<h2 data-ru="Завтрак" data-en="Breakfast">Завтрак</h2>
-<div class="item" onclick="toggleDesc(this)">
-<div data-ru="Шведский стол" data-en="Buffet breakfast">Шведский стол</div>
-<div class="item-desc" data-ru="Разнообразный выбор блюд" data-en="Wide selection of dishes">—</div>
-</div>
-</div>
-
-<div class="category">
-<h2 data-ru="Бизнес обед" data-en="Business Lunch">Бизнес обед</h2>
-
-<h3>Обед 1</h3>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Суп дня" data-en="Soup of the day">Суп дня</div><div class="item-desc" data-ru="300 мл" data-en="300 ml">300 мл</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Жаркое по-домашнему</div><div class="item-desc" data-ru="300 гр — Свинина/курица на выбор, картофель, морковь, лук репчатый, куриное филе/свинина, зелень" data-en="300g — pork or chicken, potatoes, carrots, onion, chicken fillet or pork, greens">...</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Морс ягодный" data-en="Berry drink">Морс ягодный</div><div class="item-desc" data-ru="200 мл" data-en="200 ml">200 мл</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Хлеб" data-en="Bread">Хлеб</div><div class="item-desc" data-ru="2 шт" data-en="2 pcs">2 шт</div></div>
-
-<h3>Обед 2</h3>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Суп дня" data-en="Soup of the day">Суп дня</div><div class="item-desc" data-ru="300 мл" data-en="300 ml">300 мл</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Цехтон салат</div><div class="item-desc" data-ru="180 г — говядина отв., грецкий орех, салат, майонез" data-en="180g — boiled beef, walnut, lettuce, mayonnaise">...</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Печень по-строгановски</div><div class="item-desc" data-ru="100 г — печень, лук репчатый, сметана, соль, специи, масло растительное" data-en="100g — liver, onion, sour cream, salt, spices, vegetable oil">...</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Картофель по-деревенски" data-en="Rustic potatoes">Картофель по-деревенски</div><div class="item-desc" data-ru="100 г (картофель, специи, зелень)" data-en="100g (potatoes, spices, greens)">...</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Морс ягодный" data-en="Berry drink">Морс ягодный</div><div class="item-desc" data-ru="200 мл" data-en="200 ml">200 мл</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Хлеб" data-en="Bread">Хлеб</div><div class="item-desc" data-ru="2 шт" data-en="2 pcs">2 шт</div></div>
-
-<h3>Обед 3</h3>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Суп дня" data-en="Soup of the day">Суп дня</div><div class="item-desc" data-ru="300 мл" data-en="300 ml">300 мл</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Греческий салат" data-en="Greek salad">Греческий салат</div><div class="item-desc" data-ru="200 г (огурец, томат, перец, фета, маслины, оливковое масло)" data-en="200g (cucumber, tomato, pepper, feta, olives, olive oil)">...</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Куриные крылышки гриль" data-en="Grilled chicken wings">Куриные крылышки гриль</div><div class="item-desc" data-ru="200 г" data-en="200g">200 г</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Морс ягодный" data-en="Berry drink">Морс ягодный</div><div class="item-desc" data-ru="200 мл" data-en="200 ml">200 мл</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Хлеб" data-en="Bread">Хлеб</div><div class="item-desc" data-ru="2 шт" data-en="2 pcs">2 шт</div></div>
-
-</div>
-
-<div class="category">
-<h2 data-ru="Бизнес ужин" data-en="Business Dinner">Бизнес ужин</h2>
-
-<h3>Ужин 1</h3>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Греческий салат" data-en="Greek salad">Греческий салат</div><div class="item-desc" data-ru="200 г (овощи, фета, оливки)" data-en="200g (vegetables, feta, olives)">...</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Жаркое по-домашнему" data-en="Homemade roast">Жаркое по-домашнему</div><div class="item-desc" data-ru="300 г (свинина/курица, овощи)" data-en="300g (pork/chicken, vegetables)">...</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Морс клюквенный" data-en="Cranberry drink">Морс клюквенный</div><div class="item-desc" data-ru="200 мл" data-en="200 ml">200 мл</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Хлеб" data-en="Bread">Хлеб</div><div class="item-desc" data-ru="2 шт" data-en="2 pcs">2 шт</div></div>
-
-<h3>Ужин 2</h3>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Шанхай салат</div><div class="item-desc" data-ru="185 г — куриное филе отварное, шампиньоны жареные, морковь по-корейски, грецкий орех, чернослив, майонез" data-en="185g — boiled chicken fillet, fried mushrooms, Korean carrot, walnut, prunes, mayonnaise">...</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Куриные крылышки гриль" data-en="Grilled chicken wings">Куриные крылышки гриль</div><div class="item-desc" data-ru="200 г" data-en="200g">200 г</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Картофель по-деревенски" data-en="Rustic potatoes">Картофель</div><div class="item-desc" data-ru="100 г" data-en="100g">100 г</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Хлеб" data-en="Bread">Хлеб</div><div class="item-desc" data-ru="2 шт" data-en="2 pcs">2 шт</div></div>
-
-<h3>Ужин 3</h3>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Цезарь</div><div class="item-desc" data-ru="220 г — куриное филе запеченное, черри, яйцо перепелиное, пармезан, салат лист, заправка, крутоны" data-en="220g — baked chicken fillet, cherry tomatoes, quail egg, parmesan, lettuce, dressing, croutons">...</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Карбонара</div><div class="item-desc" data-ru="270 г — спагетти отварной, ветчина, сливки, яйцо, соль, специи, масло растительное" data-en="270g — boiled spaghetti, ham, cream, egg, salt, spices, vegetable oil">...</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Морс клюквенный" data-en="Cranberry drink">Морс</div><div class="item-desc" data-ru="200 мл" data-en="200 ml">200 мл</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Хлеб" data-en="Bread">Хлеб</div><div class="item-desc" data-ru="2 шт" data-en="2 pcs">2 шт</div></div>
-
-<h3>Ужин 4</h3>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Овощная нарезка" data-en="Vegetable plate">Овощная нарезка</div><div class="item-desc" data-ru="155 г (огурец, томат, перец)" data-en="155g (cucumber, tomato, pepper)">...</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Филе куриной грудки" data-en="Chicken fillet">Филе куриной грудки</div><div class="item-desc" data-ru="200 г" data-en="200g">200 г</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Картофельное пюре" data-en="Mashed potatoes">Пюре</div><div class="item-desc" data-ru="150 г" data-en="150g">150 г</div></div>
-<div class="item" onclick="toggleDesc(this)"><div data-ru="Морс клюквенный" data-en="Cranberry drink">Морс</div><div class="item-desc" data-ru="200 мл" data-en="200 ml">200 мл</div></div>
-
-</div>
-
+<h2>Меню гостиницы</h2>
 </div>
 
 <script>
-function showMenu(id,e){
- document.querySelectorAll('.menu').forEach(m=>m.classList.remove('active'));
- const targetMenu=document.getElementById(id);
- if(targetMenu){targetMenu.classList.add('active');}
- document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
- if(e && e.currentTarget){
-  e.currentTarget.classList.add('active');
- }
+let currentLang = 'ru';
+
+function switchLang(lang){
+currentLang = lang;
+
+document.getElementById('logo').innerText = lang === 'ru' ? 'Менуа' : 'Menua';
+
+document.getElementById('tab-lounge').innerText = lang === 'ru' ? 'Меню Лаундж-бара' : 'Lounge Menu';
+document.getElementById('tab-preorder').innerText = lang === 'ru' ? 'Меню для предзаказа' : 'Pre-order Menu';
+document.getElementById('tab-hotel').innerText = lang === 'ru' ? 'Меню гостиницы' : 'Hotel Menu';
+
+// update all item texts on language switch
+updateItems();
 }
-function setLang(l){document.querySelectorAll('[data-ru]').forEach(el=>el.textContent=el.getAttribute('data-'+l));}
-function toggleDesc(el){if(el.timer)clearTimeout(el.timer);el.classList.toggle('active');if(el.classList.contains('active')){el.timer=setTimeout(()=>el.classList.remove('active'),5000)}}
+
+function updateItems(){
+  document.querySelectorAll('.item').forEach(item=>{
+    const desc = item.querySelector('.item-desc');
+    const title = item.querySelector('.item-title');
+    if(!desc || !title) return;
+
+    const raw = desc.getAttribute(`data-${currentLang}`);
+    if(!raw) return;
+
+    // split grams + name/desc if first time parsing
+    if(!title.dataset.fixed){
+      const parts = title.innerText.split(' ');
+      const maybeGram = raw.split(':')[0];
+
+      const gramSpan = document.createElement('span');
+      gramSpan.className = 'grams';
+      gramSpan.innerText = maybeGram;
+
+      title.appendChild(gramSpan);
+      title.dataset.fixed = "1";
+    }
+  });
+}
+
+function showMenu(id, btn){
+document.querySelectorAll('.menu').forEach(menu=>menu.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+
+document.querySelectorAll('.tab').forEach(tab=>tab.classList.remove('active'));
+btn.classList.add('active');
+}
+
+function toggleDesc(item){
+const desc = item.querySelector('.item-desc');
+const opened = desc.classList.contains('show');
+
+document.querySelectorAll('.item-desc').forEach(el=>el.classList.remove('show'));
+
+if(!opened){
+desc.innerText = desc.dataset[currentLang];
+desc.classList.add('show');
+
+setTimeout(()=>desc.classList.remove('show'),5000);
+}
+}
+
+switchLang('ru');
 </script>
+
 </body>
 </html>
