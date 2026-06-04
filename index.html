@@ -4,138 +4,239 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MENUA</title>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+
 body{
 font-family:Arial,sans-serif;
 background:#0a0a0a;
 background-image:radial-gradient(circle at top,#2a2a2a 0%,#0a0a0a 60%);
 color:#fff;
 }
+
 .header{
-padding:40px 20px;text-align:center;position:sticky;top:0;
-backdrop-filter:blur(12px);background:rgba(10,10,10,.85);z-index:100;
+padding:40px 20px;
+text-align:center;
+position:relative;
+backdrop-filter:blur(12px);
+background:rgba(10,10,10,.85);
 border-bottom:1px solid rgba(241,209,154,.15);
 }
-#logo{font-size:48px;color:#f1d19a;letter-spacing:5px}
-.subtitle{color:#bbb;margin-top:8px}
-.tabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:20px}
-.tab{
-padding:12px 22px;border:none;border-radius:30px;cursor:pointer;
-background:#1b1b1b;color:#fff
+
+#logo{
+font-size:48px;
+color:#f1d19a;
+letter-spacing:5px;
 }
-.tab.active{background:linear-gradient(135deg,#f1d19a,#c9a96e);color:#111;font-weight:bold}
+
+.lang-switch{
+position:absolute;
+top:15px;
+right:15px;
+display:flex;
+gap:8px;
+}
+
+.lang-switch button{
+background:#1b1b1b;
+border:none;
+color:#fff;
+padding:6px 10px;
+border-radius:10px;
+cursor:pointer;
+font-size:12px;
+}
+
+.lang-switch button.active{
+background:#f1d19a;
+color:#111;
+font-weight:bold;
+}
+
+.tabs{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+margin-top:20px;
+}
+
+.tab{
+padding:12px 22px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+background:#1b1b1b;
+color:#fff;
+}
+
+.tab.active{
+background:linear-gradient(135deg,#f1d19a,#c9a96e);
+color:#111;
+font-weight:bold;
+}
+
 .container{max-width:1200px;margin:auto;padding:25px}
+
 .menu{display:none}
 .menu.active{display:block}
+
 .category-title{
-font-size:30px;color:#f1d19a;margin:35px 0 15px;
+font-size:30px;
+color:#f1d19a;
+margin:35px 0 15px;
 }
+
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 gap:18px;
 }
+
 .card{
 background:rgba(255,255,255,.04);
 border:1px solid rgba(241,209,154,.12);
 border-radius:22px;
 padding:18px;
-transition:.3s;
 }
-.card:hover{
-transform:translateY(-5px);
-box-shadow:0 0 25px rgba(241,209,154,.15);
-}
-.top{display:flex;justify-content:space-between;gap:10px}
+
+.top{display:flex;justify-content:space-between}
 .name{font-weight:bold;font-size:18px}
+
 .weight{
 background:linear-gradient(135deg,#f1d19a,#c9a96e);
-color:#111;padding:6px 10px;border-radius:20px;font-size:12px;font-weight:bold
+color:#111;
+padding:6px 10px;
+border-radius:20px;
+font-size:12px;
+font-weight:bold;
 }
+
 .desc{color:#d2d2d2;margin-top:10px;line-height:1.6}
 .price{margin-top:14px;color:#f1d19a;font-size:24px;font-weight:bold}
+
 .search{
-width:100%;padding:14px;border-radius:16px;border:none;
-background:#171717;color:white;margin-bottom:25px
+width:100%;
+padding:14px;
+border-radius:16px;
+border:none;
+background:#171717;
+color:white;
+margin-bottom:25px;
 }
 </style>
 </head>
+
 <body>
 
 <div class="header">
+
+<div class="lang-switch">
+<button onclick="setLang('ru')" id="ruBtn" class="active">RU</button>
+<button onclick="setLang('en')" id="enBtn">EN</button>
+</div>
+
 <h1 id="logo">MENUA Lounge Bar</h1>
-<div class="subtitle">Menua Complex</div>
 
 <div class="tabs">
-<button class="tab active" onclick="showMenu('lounge',this,'MENUA Lounge Bar')">Lounge Bar</button>
-<button class="tab" onclick="showMenu('preorder',this,'MENUA')">Предзаказ</button>
-<button class="tab" onclick="showMenu('hotel',this,'MENUA Hotel')">Hotel</button>
+<button class="tab active" onclick="showMenu('lounge',this)" data-key="lounge">Lounge Bar</button>
+<button class="tab" onclick="showMenu('preorder',this)" data-key="preorder">По предзаказу</button>
+<button class="tab" onclick="showMenu('hotel',this)" data-key="hotel">Hotel</button>
 </div>
+
 </div>
 
 <div class="container">
-<input class="search" placeholder="Поиск блюда..." onkeyup="searchMenu(this.value)">
+
+<input class="search" id="search" placeholder="Поиск блюда..." onkeyup="searchMenu(this.value)">
 
 <div id="lounge" class="menu active">
 
-<div class="category-title">🍕 Пицца</div>
+<div class="category-title" data-key="pizza_title">🍕 Пицца</div>
+
 <div class="grid">
-<div class="card"><div class="top"><div class="name">Пицца 4 сыра</div><div class="weight">500 г</div></div><div class="desc">Пармезан, Чеддер, Дор Блю, Моцарелла, сливочно-сырный соус</div><div class="price">600 ₽</div></div>
-<div class="card"><div class="top"><div class="name">Пицца ветчина-грибы</div><div class="weight">620 г</div></div><div class="desc">Томатный соус, моцарелла, ветчина, шампиньоны, петрушка</div><div class="price">600 ₽</div></div>
-<div class="card"><div class="top"><div class="name">Маргарита</div><div class="weight">500 г</div></div><div class="desc">Томатный соус, моцарелла, помидоры, зелень</div><div class="price">600 ₽</div></div>
-</div>
 
-<div class="category-title">🥗 Салаты</div>
-<div class="grid">
-<div class="card"><div class="top"><div class="name">Цезарь с курицей</div><div class="weight">220 г</div></div><div class="desc">Айсберг, курица, яйцо перепелиное, черри, крутоны, пармезан, соус Цезарь</div><div class="price">450 ₽</div></div>
-<div class="card"><div class="top"><div class="name">Цезарь с семгой</div><div class="weight">220 г</div></div><div class="desc">Айсберг, семга, яйцо перепелиное, черри, крутоны, пармезан, соус Цезарь</div><div class="price">750 ₽</div></div>
-<div class="card"><div class="top"><div class="name">Цезарь с креветками</div><div class="weight">220 г</div></div><div class="desc">Айсберг, креветки, яйцо перепелиное, черри, крутоны, пармезан, соус Цезарь</div><div class="price">800 ₽</div></div>
-<div class="card"><div class="top"><div class="name">Салат с хрустящими баклажанами</div><div class="weight">220 г</div></div><div class="desc">Баклажаны, черри, фета, кунжут, сладкий чили, микс-салат</div><div class="price">350 ₽</div></div>
-<div class="card"><div class="top"><div class="name">Греческий</div><div class="weight">175 г</div></div><div class="desc">Микс салат, огурец, помидор, перец, маслины, фета</div><div class="price">300 ₽</div></div>
+<div class="card">
+<div class="top">
+<div class="name" data-key="pizza1_name">Пицца 4 сыра</div>
+<div class="weight">500 г</div>
 </div>
-
-<div class="category-title">🍝 Паста</div>
-<div class="grid">
-<div class="card"><div class="top"><div class="name">Карбонара</div><div class="weight">245 г</div></div><div class="desc">Паста, бекон, желток, сливки, пармезан</div><div class="price">420 ₽</div></div>
-<div class="card"><div class="top"><div class="name">Феттучини с курицей и грибами</div><div class="weight">285 г</div></div><div class="desc">Паста, курица, шампиньоны, сливки, пармезан</div><div class="price">450 ₽</div></div>
-<div class="card"><div class="top"><div class="name">Паста с морепродуктами</div><div class="weight">250 г</div></div><div class="desc">Креветки, паста, песто, сливки, пармезан</div><div class="price">550 ₽</div></div>
-</div>
-
-<div class="category-title">🍔 Бургеры и закуски</div>
-<div class="grid">
-<div class="card"><div class="top"><div class="name">Бургер</div><div class="weight">275 г</div></div><div class="desc">Булочка, говяжья котлета, чеддер, овощи, соус</div><div class="price">350 ₽</div></div>
-<div class="card"><div class="top"><div class="name">Сэндвич</div><div class="weight">150 г</div></div><div class="desc">Хлеб, сыр, ветчина, кетчуп, салат</div><div class="price">250 ₽</div></div>
-<div class="card"><div class="top"><div class="name">Картофель фри</div><div class="weight">120 г</div></div><div class="desc">Картофель, специи</div><div class="price">150 ₽</div></div>
-<div class="card"><div class="top"><div class="name">Картофель по-деревенски</div><div class="weight">150 г</div></div><div class="desc">Картофель, специи</div><div class="price">210 ₽</div></div>
-<div class="card"><div class="top"><div class="name">Наггетсы</div><div class="weight">125 г</div></div><div class="desc">6 шт.</div><div class="price">250 ₽</div></div>
-<div class="card"><div class="top"><div class="name">Креветки в кляре</div><div class="weight">200 г</div></div><div class="desc">5 шт.</div><div class="price">550 ₽</div></div>
-<div class="card"><div class="top"><div class="name">Кольца кальмара</div><div class="weight">7 шт.</div></div><div class="desc">В кляре</div><div class="price">350 ₽</div></div>
-<div class="card"><div class="top"><div class="name">Крылья BBQ</div><div class="weight">200 г</div></div><div class="desc">4 шт.</div><div class="price">350 ₽</div></div>
-<div class="card"><div class="top"><div class="name">Гренки чесночные</div><div class="weight">100 г</div></div><div class="desc">8 шт.</div><div class="price">190 ₽</div></div>
+<div class="desc" data-key="pizza1_desc">Пармезан, Чеддер, Дор Блю, Моцарелла, сливочно-сырный соус</div>
+<div class="price">600 ₽</div>
 </div>
 
 </div>
 
-<div id="preorder" class="menu"><h2>Раздел предзаказа</h2></div>
-<div id="hotel" class="menu"><h2>Меню гостиницы</h2></div>
+</div>
+
+<div id="preorder" class="menu"><h2 data-key="preorder">По предзаказу</h2></div>
+<div id="hotel" class="menu"><h2 data-key="hotel">Меню гостиницы</h2></div>
 
 </div>
 
 <script>
-function showMenu(id,btn,title){
-document.getElementById('logo').innerText=title;
+
+function showMenu(id,btn){
 document.querySelectorAll('.menu').forEach(m=>m.classList.remove('active'));
 document.getElementById(id).classList.add('active');
+
 document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
 btn.classList.add('active');
 }
+
+/* SEARCH */
 function searchMenu(v){
 v=v.toLowerCase();
 document.querySelectorAll('.card').forEach(c=>{
 c.style.display=c.innerText.toLowerCase().includes(v)?'block':'none';
 });
 }
+
+/* TRANSLATIONS */
+const translations = {
+ru:{
+search:"Поиск блюда...",
+pizza_title:"🍕 Пицца",
+pizza1_name:"Пицца 4 сыра",
+pizza1_desc:"Пармезан, Чеддер, Дор Блю, Моцарелла, сливочно-сырный соус",
+preorder:"По предзаказу",
+hotel:"Меню гостиницы"
+},
+
+en:{
+search:"Search dishes...",
+pizza_title:"🍕 Pizza",
+pizza1_name:"Four Cheese Pizza",
+pizza1_desc:"Parmesan, Cheddar, Blue cheese, Mozzarella, cream sauce",
+preorder:"Pre-order",
+hotel:"Hotel Menu"
+}
+};
+
+function setLang(lang){
+
+document.getElementById('ruBtn').classList.remove('active');
+document.getElementById('enBtn').classList.remove('active');
+
+if(lang==='ru') document.getElementById('ruBtn').classList.add('active');
+if(lang==='en') document.getElementById('enBtn').classList.add('active');
+
+document.documentElement.lang = lang;
+
+/* TEXT SWITCH */
+document.querySelectorAll('[data-key]').forEach(el=>{
+const key = el.getAttribute('data-key');
+if(translations[lang][key]){
+el.innerText = translations[lang][key];
+}
+});
+
+/* search placeholder */
+document.getElementById('search').placeholder = translations[lang].search;
+}
+
 </script>
+
 </body>
 </html>
