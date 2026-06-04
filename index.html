@@ -108,7 +108,6 @@ overflow:hidden;
 .name{font-weight:bold;font-size:18px}
 .weight{font-size:12px;color:#f1d19a;margin-top:5px}
 
-/* NEW PRICE POSITION */
 .price{
 position:absolute;
 top:12px;
@@ -148,6 +147,7 @@ font-size:13px;
 
 <div class="container">
 
+<!-- LOUNGE -->
 <div id="lounge" class="menu active">
 
 <div class="category-title" data-cat="pizza"></div>
@@ -212,9 +212,43 @@ font-size:13px;
 
 </div>
 
+<!-- PREORDER -->
 <div id="preorder" class="menu"><h2></h2></div>
+
+<!-- HOTEL -->
 <div id="hotel" class="menu"><h2></h2></div>
+
+<!-- BAR -->
 <div id="bar" class="menu">
+
+<div class="category-title" data-cat="bar"></div>
+
+<div class="grid">
+
+<div class="card" data-id="mojito">
+<div class="name"></div>
+<div class="weight">300 ml</div>
+<div class="price"></div>
+<div class="desc"></div>
+</div>
+
+<div class="card" data-id="espresso_martini">
+<div class="name"></div>
+<div class="weight">120 ml</div>
+<div class="price"></div>
+<div class="desc"></div>
+</div>
+
+<div class="card" data-id="whiskey_sour">
+<div class="name"></div>
+<div class="weight">200 ml</div>
+<div class="price"></div>
+<div class="desc"></div>
+</div>
+
+</div>
+</div>
+
 </div>
 
 <script>
@@ -226,40 +260,37 @@ document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
 btn.classList.add('active');
 }
 
-/* UI */
 const ui = {
 ru:{
 logo:"MENUA Lounge Bar",
-tabs:["Lounge Bar","По предзаказу","Hotel"],
+tabs:["Lounge Bar","По предзаказу","Hotel","Bar"],
 cats:{
 pizza:"🍕 Пицца",
 burgers:"🍔 Бургеры и закуски",
 salads:"🥗 Салаты",
 pasta:"🍝 Паста",
-sets:"🍺 Сеты"
+sets:"🍺 Сеты",
+bar:"🍸 Бар"
 },
 preorder:"По предзаказу",
 hotel:"Меню гостиницы"
-bar:"Бар меню"
-  
 },
 en:{
 logo:"MENUA Lounge Bar",
-tabs:["Lounge Bar","Pre-order","Hotel"],
+tabs:["Lounge Bar","Pre-order","Hotel","Bar"],
 cats:{
 pizza:"🍕 Pizza",
 burgers:"🍔 Burgers & Snacks",
 salads:"🥗 Salads",
 pasta:"🍝 Pasta",
-sets:"🍺 Sets"
+sets:"🍺 Sets",
+bar:"🍸 Bar"
 },
 preorder:"Pre-order",
 hotel:"Hotel menu"
-bar:"Bar menu"
 }
 };
 
-/* MENU */
 const menu = {
 burger:{name:{ru:"Бургер",en:"Burger"},price:"350 ₽",desc:{ru:"Булочка, соус, салат, чеддер, говядина",en:"Bun, sauce, lettuce, cheddar, beef"}},
 sandwich:{name:{ru:"Сэндвич",en:"Sandwich"},price:"250 ₽",desc:{ru:"Хлеб, сыр, ветчина",en:"Bread, cheese, ham"}},
@@ -294,7 +325,11 @@ eggplant:{name:{ru:"Баклажаны",en:"Eggplant"},price:"350 ₽",desc:{ru:
 greek:{name:{ru:"Греческий",en:"Greek salad"},price:"300 ₽",desc:{ru:"Овощи",en:"Vegetables"}},
 
 beer_set_garlic:{name:{ru:"Пивной сет чесночный",en:"Beer set garlic"},price:"1050 ₽",desc:{ru:"Сет",en:"Set"}},
-beer_set_shrimp:{name:{ru:"Пивной сет с креветками",en:"Beer set shrimp"},price:"1650 ₽",desc:{ru:"Сет",en:"Set"}}
+beer_set_shrimp:{name:{ru:"Пивной сет с креветками",en:"Beer set shrimp"},price:"1650 ₽",desc:{ru:"Сет",en:"Set"}},
+
+mojito:{name:{ru:"Мохито",en:"Mojito"},price:"450 ₽",desc:{ru:"Ром, мята, лайм",en:"Rum, mint, lime"}},
+espresso_martini:{name:{ru:"Эспрессо мартини",en:"Espresso Martini"},price:"600 ₽",desc:{ru:"Кофе, водка",en:"Coffee, vodka"}},
+whiskey_sour:{name:{ru:"Виски сауэр",en:"Whiskey Sour"},price:"550 ₽",desc:{ru:"Виски, лимон",en:"Whiskey, lemon"}}
 };
 
 function setLang(lang){
@@ -304,12 +339,14 @@ document.getElementById('logo').textContent = ui[lang].logo;
 document.querySelectorAll('.tab')[0].textContent = ui[lang].tabs[0];
 document.querySelectorAll('.tab')[1].textContent = ui[lang].tabs[1];
 document.querySelectorAll('.tab')[2].textContent = ui[lang].tabs[2];
+document.querySelectorAll('.tab')[3].textContent = ui[lang].tabs[3];
 
 document.querySelector('[data-cat="pizza"]').textContent = ui[lang].cats.pizza;
 document.querySelector('[data-cat="burgers"]').textContent = ui[lang].cats.burgers;
 document.querySelector('[data-cat="salads"]').textContent = ui[lang].cats.salads;
 document.querySelector('[data-cat="pasta"]').textContent = ui[lang].cats.pasta;
 document.querySelector('[data-cat="sets"]').textContent = ui[lang].cats.sets;
+document.querySelector('[data-cat="bar"]').textContent = ui[lang].cats.bar;
 
 document.querySelectorAll('.card').forEach(card=>{
 const id = card.dataset.id;
