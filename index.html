@@ -141,7 +141,6 @@ font-size:13px;
 <button class="tab active" onclick="showMenu('lounge',this)"></button>
 <button class="tab" onclick="showMenu('preorder',this)"></button>
 <button class="tab" onclick="showMenu('hotel',this)"></button>
-<button class="tab" onclick="showMenu('bar',this)">Bar</button>
 </div>
 
 </div>
@@ -256,84 +255,8 @@ hotel:"Hotel menu"
 }
 };
 
-  cats:{
-whisky:"🥃 Виски",
-tequila:"🌵 Текила",
-vodka:"🍸 Водка",
-rum:"🥃 Ром",
-gin:"🍸 Джин",
-liq:"🍹 Ликёры",
-vermouth:"🍷 Вермут"
-}
-
-cats:{
-whisky:"Whisky",
-tequila:"Tequila",
-vodka:"Vodka",
-rum:"Rum",
-gin:"Gin",
-liq:"Liqueurs",
-vermouth:"Vermouth"
-}
-
 /* MENU */
 const menu = {
-
-/* ================= BAR ================= */
-
-/* WHISKY (50 мл) */
-wh1:{name:{ru:"William Lawsons (Шотландия)",en:"William Lawsons"},price:"260 ₽"},
-wh2:{name:{ru:"Jim Beam (США)",en:"Jim Beam"},price:"400 ₽"},
-wh3:{name:{ru:"Jameson (Ирландия)",en:"Jameson"},price:"550 ₽"},
-wh4:{name:{ru:"Jack Daniels (США)",en:"Jack Daniels"},price:"600 ₽"},
-wh5:{name:{ru:"Makers Mark (США)",en:"Makers Mark"},price:"980 ₽"},
-wh6:{name:{ru:"Chivas Regal 12 (Шотландия)",en:"Chivas Regal 12"},price:"950 ₽"},
-wh7:{name:{ru:"Chivas Regal Extra (Шотландия)",en:"Chivas Regal Extra"},price:"1050 ₽"},
-wh8:{name:{ru:"Glenmorangie 10 (Шотландия)",en:"Glenmorangie 10"},price:"1700 ₽"},
-wh9:{name:{ru:"Glenfiddich 12 (Шотландия)",en:"Glenfiddich 12"},price:"1800 ₽"},
-wh10:{name:{ru:"The Macallan 12 (Шотландия)",en:"Macallan 12"},price:"3200 ₽"},
-
-/* TEQUILA (50 мл) */
-t1:{name:{ru:"Olmeca Silver",en:"Olmeca Silver"},price:"450 ₽"},
-t2:{name:{ru:"Olmeca Gold",en:"Olmeca Gold"},price:"550 ₽"},
-
-/* VODKA (50 мл) */
-v1:{name:{ru:"Хаски",en:"Husky"},price:"150 ₽"},
-v2:{name:{ru:"Русский Стандарт",en:"Russian Standard"},price:"190 ₽"},
-v3:{name:{ru:"Царская Золотая",en:"Tsarskaya Gold"},price:"200 ₽"},
-v4:{name:{ru:"Армянская плодовая",en:"Fruit Vodka"},price:"220 ₽"},
-v5:{name:{ru:"Kremlin",en:"Kremlin"},price:"240 ₽"},
-v6:{name:{ru:"Финляндия",en:"Finlandia"},price:"330 ₽"},
-v7:{name:{ru:"Белуга",en:"Beluga"},price:"330 ₽"},
-v8:{name:{ru:"Чистые Росы",en:"Chistye Rosy"},price:"350 ₽"},
-v9:{name:{ru:"Арцах",en:"Armenian Ardzakh"},price:"350 ₽"},
-v10:{name:{ru:"Ohanyan Vodka Ice",en:"Ohanyan Vodka Ice"},price:"350 ₽"},
-v11:{name:{ru:"Grey Goose",en:"Grey Goose"},price:"600 ₽"},
-
-/* RUM (50 мл) */
-r1:{name:{ru:"Bacardi Carta Blanca",en:"Bacardi Carta Blanca"},price:"400 ₽"},
-r2:{name:{ru:"Bacardi Carta Oro",en:"Bacardi Carta Oro"},price:"450 ₽"},
-r3:{name:{ru:"Bacardi Carta Negra",en:"Bacardi Carta Negra"},price:"500 ₽"},
-r4:{name:{ru:"Captain Morgan Spiced Gold",en:"Captain Morgan"},price:"350 ₽"},
-
-/* GIN (50 мл) */
-g1:{name:{ru:"Beefeater",en:"Beefeater"},price:"550 ₽"},
-
-/* LIQUORS (50 мл) */
-l1:{name:{ru:"Вечеровка",en:"Becherovka"},price:"330 ₽"},
-l2:{name:{ru:"Aperol",en:"Aperol"},price:"350 ₽"},
-l3:{name:{ru:"Jagermeister",en:"Jagermeister"},price:"400 ₽"},
-l4:{name:{ru:"Campari",en:"Campari"},price:"350 ₽"},
-l5:{name:{ru:"Baileys",en:"Baileys"},price:"480 ₽"},
-l6:{name:{ru:"Sambuca",en:"Sambuca"},price:"370 ₽"},
-l7:{name:{ru:"Marie Brizard",en:"Marie Brizard"},price:"400 ₽"},
-l8:{name:{ru:"Абсент",en:"Absinthe"},price:"450 ₽"},
-
-/* VERMOUTH (50 мл) */
-m1:{name:{ru:"Martini Rosso",en:"Martini Rosso"},price:"220 ₽"},
-m2:{name:{ru:"Martini Bianco",en:"Martini Bianco"},price:"220 ₽"},
-m3:{name:{ru:"Martini Dry",en:"Martini Dry"},price:"220 ₽"}
-  
 burger:{name:{ru:"Бургер",en:"Burger"},price:"350 ₽",desc:{ru:"Булочка, соус, салат, чеддер, говядина",en:"Bun, sauce, lettuce, cheddar, beef"}},
 sandwich:{name:{ru:"Сэндвич",en:"Sandwich"},price:"250 ₽",desc:{ru:"Хлеб, сыр, ветчина",en:"Bread, cheese, ham"}},
 fries:{name:{ru:"Картофель фри",en:"Fries"},price:"150 ₽",desc:{ru:"Картофель, специи",en:"Potatoes, spices"}},
