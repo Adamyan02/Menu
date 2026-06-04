@@ -97,15 +97,32 @@ gap:15px;
 }
 
 .card{
+position:relative;
 background:rgba(255,255,255,.04);
 border:1px solid rgba(241,209,154,.12);
 border-radius:18px;
 padding:15px;
+overflow:hidden;
 }
 
 .name{font-weight:bold;font-size:18px}
 .weight{font-size:12px;color:#f1d19a;margin-top:5px}
-.desc{color:#ccc;margin-top:8px;line-height:1.5}
+
+/* NEW PRICE POSITION */
+.price{
+position:absolute;
+top:12px;
+right:12px;
+background:rgba(241,209,154,.15);
+border:1px solid rgba(241,209,154,.35);
+color:#f1d19a;
+padding:4px 8px;
+border-radius:10px;
+font-weight:bold;
+font-size:13px;
+}
+
+.desc{color:#ccc;margin-top:10px;line-height:1.5}
 </style>
 </head>
 
@@ -135,60 +152,60 @@ padding:15px;
 <div class="category-title" data-cat="pizza"></div>
 <div class="grid">
 
-<div class="card" data-id="pizza4"><div class="name"></div><div class="weight">500 g</div><div class="desc"></div></div>
-<div class="card" data-id="pizza_ham_mush"><div class="name"></div><div class="weight">620 g</div><div class="desc"></div></div>
-<div class="card" data-id="margarita"><div class="name"></div><div class="weight">500 g</div><div class="desc"></div></div>
+<div class="card" data-id="pizza4"><div class="name"></div><div class="weight">500 g</div><div class="price"></div><div class="desc"></div></div>
+<div class="card" data-id="pizza_ham_mush"><div class="name"></div><div class="weight">620 g</div><div class="price"></div><div class="desc"></div></div>
+<div class="card" data-id="margarita"><div class="name"></div><div class="weight">500 g</div><div class="price"></div><div class="desc"></div></div>
 
 </div>
 
 <div class="category-title" data-cat="burgers"></div>
 <div class="grid">
 
-<div class="card" data-id="burger"><div class="name"></div><div class="weight">275 g</div><div class="desc"></div></div>
-<div class="card" data-id="sandwich"><div class="name"></div><div class="weight">150 g</div><div class="desc"></div></div>
-<div class="card" data-id="fries"><div class="name"></div><div class="weight">120 g</div><div class="desc"></div></div>
-<div class="card" data-id="rustic"><div class="name"></div><div class="weight">150 g</div><div class="desc"></div></div>
+<div class="card" data-id="burger"><div class="name"></div><div class="weight">275 g</div><div class="price"></div><div class="desc"></div></div>
+<div class="card" data-id="sandwich"><div class="name"></div><div class="weight">150 g</div><div class="price"></div><div class="desc"></div></div>
+<div class="card" data-id="fries"><div class="name"></div><div class="weight">120 g</div><div class="price"></div><div class="desc"></div></div>
+<div class="card" data-id="rustic"><div class="name"></div><div class="weight">150 g</div><div class="price"></div><div class="desc"></div></div>
 
-<div class="card" data-id="nuggets"><div class="name"></div><div class="weight">6 pcs</div><div class="desc"></div></div>
-<div class="card" data-id="shrimp_tempura"><div class="name"></div><div class="weight">5 pcs</div><div class="desc"></div></div>
-<div class="card" data-id="calamari"><div class="name"></div><div class="weight">7 pcs</div><div class="desc"></div></div>
-<div class="card" data-id="wings"><div class="name"></div><div class="weight">4 pcs</div><div class="desc"></div></div>
-<div class="card" data-id="croutons"><div class="name"></div><div class="weight">8 pcs</div><div class="desc"></div></div>
+<div class="card" data-id="nuggets"><div class="name"></div><div class="weight">6 pcs</div><div class="price"></div><div class="desc"></div></div>
+<div class="card" data-id="shrimp_tempura"><div class="name"></div><div class="weight">5 pcs</div><div class="price"></div><div class="desc"></div></div>
+<div class="card" data-id="calamari"><div class="name"></div><div class="weight">7 pcs</div><div class="price"></div><div class="desc"></div></div>
+<div class="card" data-id="wings"><div class="name"></div><div class="weight">4 pcs</div><div class="price"></div><div class="desc"></div></div>
+<div class="card" data-id="croutons"><div class="name"></div><div class="weight">8 pcs</div><div class="price"></div><div class="desc"></div></div>
 
 </div>
 
 <div class="category-title" data-cat="salads"></div>
 <div class="grid">
 
-<div class="card" data-id="caesar_chicken"><div class="name"></div><div class="weight">220 g</div><div class="desc"></div></div>
-<div class="card" data-id="caesar_salmon"><div class="name"></div><div class="weight">220 g</div><div class="desc"></div></div>
-<div class="card" data-id="caesar_shrimp"><div class="name"></div><div class="weight">220 g</div><div class="desc"></div></div>
+<div class="card" data-id="caesar_chicken"><div class="name"></div><div class="weight">220 g</div><div class="price"></div><div class="desc"></div></div>
+<div class="card" data-id="caesar_salmon"><div class="name"></div><div class="weight">220 g</div><div class="price"></div><div class="desc"></div></div>
+<div class="card" data-id="caesar_shrimp"><div class="name"></div><div class="weight">220 g</div><div class="price"></div><div class="desc"></div></div>
 
-<div class="card" data-id="eggplant"><div class="name"></div><div class="weight">220 g</div><div class="desc"></div></div>
-<div class="card" data-id="greek"><div class="name"></div><div class="weight">175 g</div><div class="desc"></div></div>
+<div class="card" data-id="eggplant"><div class="name"></div><div class="weight">220 g</div><div class="price"></div><div class="desc"></div></div>
+<div class="card" data-id="greek"><div class="name"></div><div class="weight">175 g</div><div class="price"></div><div class="desc"></div></div>
 
 </div>
 
 <div class="category-title" data-cat="pasta"></div>
 <div class="grid">
 
-<div class="card" data-id="carbonara"><div class="name"></div><div class="weight">245 g</div><div class="desc"></div></div>
-<div class="card" data-id="fettuccine"><div class="name"></div><div class="weight">285 g</div><div class="desc"></div></div>
-<div class="card" data-id="shrimp_pasta"><div class="name"></div><div class="weight">250 g</div><div class="desc"></div></div>
+<div class="card" data-id="carbonara"><div class="name"></div><div class="weight">245 g</div><div class="price"></div><div class="desc"></div></div>
+<div class="card" data-id="fettuccine"><div class="name"></div><div class="weight">285 g</div><div class="price"></div><div class="desc"></div></div>
+<div class="card" data-id="shrimp_pasta"><div class="name"></div><div class="weight">250 g</div><div class="price"></div><div class="desc"></div></div>
 
 </div>
 
 <div class="category-title" data-cat="sets"></div>
 <div class="grid">
 
-<div class="card" data-id="cheese_big"><div class="name"></div><div class="weight">370 g</div><div class="desc"></div></div>
-<div class="card" data-id="cheese_small"><div class="name"></div><div class="weight">200 g</div><div class="desc"></div></div>
+<div class="card" data-id="cheese_big"><div class="name"></div><div class="weight">370 g</div><div class="price"></div><div class="desc"></div></div>
+<div class="card" data-id="cheese_small"><div class="name"></div><div class="weight">200 g</div><div class="price"></div><div class="desc"></div></div>
 
-<div class="card" data-id="meat_big"><div class="name"></div><div class="weight">320 g</div><div class="desc"></div></div>
-<div class="card" data-id="meat_small"><div class="name"></div><div class="weight">200 g</div><div class="desc"></div></div>
+<div class="card" data-id="meat_big"><div class="name"></div><div class="weight">320 g</div><div class="price"></div><div class="desc"></div></div>
+<div class="card" data-id="meat_small"><div class="name"></div><div class="weight">200 g</div><div class="price"></div><div class="desc"></div></div>
 
-<div class="card" data-id="beer_set_garlic"><div class="name"></div><div class="weight">350 g</div><div class="desc"></div></div>
-<div class="card" data-id="beer_set_shrimp"><div class="name"></div><div class="weight">850 g</div><div class="desc"></div></div>
+<div class="card" data-id="beer_set_garlic"><div class="name"></div><div class="weight">350 g</div><div class="price"></div><div class="desc"></div></div>
+<div class="card" data-id="beer_set_shrimp"><div class="name"></div><div class="weight">850 g</div><div class="price"></div><div class="desc"></div></div>
 
 </div>
 
@@ -238,40 +255,42 @@ hotel:"Hotel menu"
 }
 };
 
-/* FULL MENU RESTORED */
+/* MENU */
 const menu = {
-burger:{name:{ru:"Бургер",en:"Burger"},desc:{ru:"Булочка, соус, салат, чеддер, говядина, овощи",en:"Bun, sauce, lettuce, cheddar, beef, vegetables"}},
-sandwich:{name:{ru:"Сэндвич",en:"Sandwich"},desc:{ru:"Хлеб, сыр, ветчина, кетчуп, салат",en:"Bread, cheese, ham, ketchup, lettuce"}},
-fries:{name:{ru:"Фри",en:"Fries"},desc:{ru:"Картофель, соль, паприка",en:"Potatoes, salt, paprika"}},
-rustic:{name:{ru:"Картофель по-деревенски",en:"Rustic potatoes"},desc:{ru:"Картофель, специи",en:"Potatoes, spices"}},
+burger:{name:{ru:"Бургер",en:"Burger"},price:"350 ₽",desc:{ru:"Булочка, соус, салат, чеддер, говядина",en:"Bun, sauce, lettuce, cheddar, beef"}},
+sandwich:{name:{ru:"Сэндвич",en:"Sandwich"},price:"250 ₽",desc:{ru:"Хлеб, сыр, ветчина",en:"Bread, cheese, ham"}},
+fries:{name:{ru:"Картофель фри",en:"Fries"},price:"150 ₽",desc:{ru:"Картофель, специи",en:"Potatoes, spices"}},
+rustic:{name:{ru:"Картофель по-деревенски",en:"Rustic potatoes"},price:"210 ₽",desc:{ru:"Картофель, специи",en:"Potatoes, spices"}},
 
-pizza4:{name:{ru:"Пицца 4 сыра",en:"4 Cheese Pizza"},desc:{ru:"Пармезан, чеддер, дор блю, моцарелла",en:"Parmesan, cheddar, blue cheese, mozzarella"}},
-pizza_ham_mush:{name:{ru:"Ветчина/грибы",en:"Ham & Mushroom"},desc:{ru:"Соус, моцарелла, ветчина, грибы",en:"Sauce, mozzarella, ham, mushrooms"}},
-margarita:{name:{ru:"Маргарита",en:"Margherita"},desc:{ru:"Помидоры, сыр, зелень",en:"Tomatoes, cheese, greens"}},
+pizza4:{name:{ru:"Пицца 4 сыра",en:"4 Cheese Pizza"},price:"600 ₽",desc:{ru:"4 сыра",en:"4 cheeses"}},
+pizza_ham_mush:{name:{ru:"Ветчина-грибы",en:"Ham & Mushroom"},price:"600 ₽",desc:{ru:"Соус, сыр, ветчина, грибы",en:"Sauce, cheese, ham, mushrooms"}},
+margarita:{name:{ru:"Маргарита",en:"Margherita"},price:"600 ₽",desc:{ru:"Помидоры, сыр",en:"Tomatoes, cheese"}},
 
-nuggets:{name:{ru:"Наггетсы",en:"Nuggets"},desc:{ru:"6 шт",en:"6 pcs"}},
-shrimp_tempura:{name:{ru:"Креветки в кляре",en:"Shrimp tempura"},desc:{ru:"5 шт",en:"5 pcs"}},
-calamari:{name:{ru:"Кольца кальмара",en:"Calamari rings"},desc:{ru:"7 шт",en:"7 pcs"}},
-wings:{name:{ru:"Крылья BBQ",en:"BBQ wings"},desc:{ru:"4 шт",en:"4 pcs"}},
-croutons:{name:{ru:"Гренки чесночные",en:"Garlic croutons"},desc:{ru:"8 шт",en:"8 pcs"}},
+carbonara:{name:{ru:"Карбонара",en:"Carbonara"},price:"420 ₽",desc:{ru:"Паста, бекон, сливки",en:"Pasta, bacon, cream"}},
+fettuccine:{name:{ru:"Курица и грибы",en:"Chicken mushroom"},price:"450 ₽",desc:{ru:"Паста, курица, грибы",en:"Pasta, chicken, mushrooms"}},
+shrimp_pasta:{name:{ru:"Морепродукты",en:"Seafood pasta"},price:"550 ₽",desc:{ru:"Креветки, соус",en:"Shrimp, sauce"}},
 
-caesar_chicken:{name:{ru:"Цезарь с курицей",en:"Chicken Caesar"},desc:{ru:"Салат, курица, соус",en:"Lettuce, chicken, sauce"}},
-caesar_salmon:{name:{ru:"Цезарь с семгой",en:"Salmon Caesar"},desc:{ru:"Салат, лосось, соус",en:"Lettuce, salmon, sauce"}},
-caesar_shrimp:{name:{ru:"Цезарь с креветкой",en:"Shrimp Caesar"},desc:{ru:"Салат, креветки, соус",en:"Lettuce, shrimp, sauce"}},
-eggplant:{name:{ru:"Хрустящие баклажаны",en:"Crispy eggplant"},desc:{ru:"Баклажан, фета",en:"Eggplant, feta"}},
-greek:{name:{ru:"Греческий",en:"Greek salad"},desc:{ru:"Овощи, фета, маслины",en:"Vegetables, feta, olives"}},
+cheese_big:{name:{ru:"Сырная нарезка большая",en:"Cheese platter big"},price:"850 ₽",desc:{ru:"Сыры",en:"Cheeses"}},
+cheese_small:{name:{ru:"Сырная нарезка малая",en:"Cheese platter small"},price:"580 ₽",desc:{ru:"Сыры",en:"Cheeses"}},
 
-carbonara:{name:{ru:"Карбонара",en:"Carbonara"},desc:{ru:"Паста, бекон, сливки",en:"Pasta, bacon, cream"}},
-fettuccine:{name:{ru:"Феттучини курица/грибы",en:"Chicken mushroom fettuccine"},desc:{ru:"Паста, курица, грибы",en:"Pasta, chicken, mushrooms"}},
-shrimp_pasta:{name:{ru:"Паста с креветками",en:"Shrimp pasta"},desc:{ru:"Креветки, песто, сливки",en:"Shrimp, pesto, cream"}},
+meat_big:{name:{ru:"Мясная нарезка большая",en:"Meat platter big"},price:"950 ₽",desc:{ru:"Мясо",en:"Meat"}},
+meat_small:{name:{ru:"Мясная нарезка малая",en:"Meat platter small"},price:"650 ₽",desc:{ru:"Мясо",en:"Meat"}},
 
-cheese_big:{name:{ru:"Сырная нарезка",en:"Cheese platter"},desc:{ru:"Ассорти сыров",en:"Cheese selection"}},
-cheese_small:{name:{ru:"Сырная нарезка малая",en:"Small cheese platter"},desc:{ru:"Ассорти сыров",en:"Cheese selection"}},
-meat_big:{name:{ru:"Мясная нарезка",en:"Meat platter"},desc:{ru:"Колбасы, мясо",en:"Meat selection"}},
-meat_small:{name:{ru:"Мясная нарезка малая",en:"Small meat platter"},desc:{ru:"Колбасы, мясо",en:"Meat selection"}},
+shrimp_tempura:{name:{ru:"Креветки в кляре",en:"Shrimp tempura"},price:"550 ₽",desc:{ru:"5 шт",en:"5 pcs"}},
+nuggets:{name:{ru:"Наггетсы",en:"Nuggets"},price:"250 ₽",desc:{ru:"6 шт",en:"6 pcs"}},
+calamari:{name:{ru:"Кольца кальмара",en:"Calamari rings"},price:"350 ₽",desc:{ru:"7 шт",en:"7 pcs"}},
+wings:{name:{ru:"Крылья BBQ",en:"BBQ wings"},price:"350 ₽",desc:{ru:"4 шт",en:"4 pcs"}},
+croutons:{name:{ru:"Гренки",en:"Croutons"},price:"190 ₽",desc:{ru:"8 шт",en:"8 pcs"}},
 
-beer_set_garlic:{name:{ru:"Пивной сет чесночный",en:"Beer set garlic"},desc:{ru:"Снэки микс",en:"Snack mix"}},
-beer_set_shrimp:{name:{ru:"Пивной сет с креветками",en:"Beer set shrimp"},desc:{ru:"Морской сет",en:"Seafood set"}}
+caesar_chicken:{name:{ru:"Цезарь с курицей",en:"Chicken Caesar"},price:"450 ₽",desc:{ru:"Салат",en:"Salad"}},
+caesar_salmon:{name:{ru:"Цезарь с семгой",en:"Salmon Caesar"},price:"750 ₽",desc:{ru:"Салат",en:"Salad"}},
+caesar_shrimp:{name:{ru:"Цезарь с креветками",en:"Shrimp Caesar"},price:"800 ₽",desc:{ru:"Салат",en:"Salad"}},
+
+eggplant:{name:{ru:"Баклажаны",en:"Eggplant"},price:"350 ₽",desc:{ru:"Баклажан",en:"Eggplant"}},
+greek:{name:{ru:"Греческий",en:"Greek salad"},price:"300 ₽",desc:{ru:"Овощи",en:"Vegetables"}},
+
+beer_set_garlic:{name:{ru:"Пивной сет чесночный",en:"Beer set garlic"},price:"1050 ₽",desc:{ru:"Сет",en:"Set"}},
+beer_set_shrimp:{name:{ru:"Пивной сет с креветками",en:"Beer set shrimp"},price:"1650 ₽",desc:{ru:"Сет",en:"Set"}}
 };
 
 function setLang(lang){
@@ -293,6 +312,7 @@ const id = card.dataset.id;
 if(menu[id]){
 card.querySelector('.name').textContent = menu[id].name[lang];
 card.querySelector('.desc').textContent = menu[id].desc[lang];
+card.querySelector('.price').textContent = menu[id].price;
 }
 });
 
