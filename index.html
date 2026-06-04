@@ -8,12 +8,6 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
-html, body{
-height:auto;
-min-height:100%;
-overflow-y:auto;
-}
-
 body{
 font-family:Arial,sans-serif;
 background:#0a0a0a;
@@ -50,7 +44,6 @@ color:#fff;
 padding:6px 10px;
 border-radius:10px;
 cursor:pointer;
-font-size:12px;
 }
 
 .lang-switch button.active{
@@ -86,78 +79,34 @@ font-weight:bold;
 max-width:1200px;
 margin:auto;
 padding:25px;
-overflow:visible;
 }
 
-.menu{
-display:none;
-}
-
-.menu.active{
-display:block;
-}
+.menu{display:none}
+.menu.active{display:block}
 
 .category-title{
-font-size:30px;
+font-size:28px;
 color:#f1d19a;
-margin:35px 0 15px;
+margin:30px 0 15px;
 }
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:18px;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:15px;
 }
 
 .card{
 background:rgba(255,255,255,.04);
 border:1px solid rgba(241,209,154,.12);
-border-radius:22px;
-padding:18px;
+border-radius:18px;
+padding:15px;
 }
 
-.top{
-display:flex;
-justify-content:space-between;
-gap:10px;
-}
-
-.name{
-font-weight:bold;
-font-size:18px;
-}
-
-.weight{
-background:linear-gradient(135deg,#f1d19a,#c9a96e);
-color:#111;
-padding:6px 10px;
-border-radius:20px;
-font-size:12px;
-font-weight:bold;
-}
-
-.desc{
-color:#d2d2d2;
-margin-top:10px;
-line-height:1.6;
-}
-
-.price{
-margin-top:14px;
-color:#f1d19a;
-font-size:24px;
-font-weight:bold;
-}
-
-.search{
-width:100%;
-padding:14px;
-border-radius:16px;
-border:none;
-background:#171717;
-color:white;
-margin-bottom:25px;
-}
+.name{font-weight:bold;font-size:18px}
+.weight{font-size:12px;color:#f1d19a;margin-top:5px}
+.desc{color:#ccc;margin-top:8px;line-height:1.5}
+.price{margin-top:10px;color:#f1d19a;font-size:20px;font-weight:bold}
 </style>
 </head>
 
@@ -166,8 +115,8 @@ margin-bottom:25px;
 <div class="header">
 
 <div class="lang-switch">
-<button onclick="setLang('ru')" id="ruBtn" class="active">RU</button>
-<button onclick="setLang('en')" id="enBtn">EN</button>
+<button id="ruBtn" class="active" onclick="setLang('ru')">RU</button>
+<button id="enBtn" onclick="setLang('en')">EN</button>
 </div>
 
 <h1 id="logo">MENUA Lounge Bar</h1>
@@ -182,136 +131,89 @@ margin-bottom:25px;
 
 <div class="container">
 
-<input class="search" id="search" placeholder="Поиск блюда..." onkeyup="searchMenu(this.value)">
-
 <!-- LOUNGE -->
 <div id="lounge" class="menu active">
 
-<div class="category-title" data-key="pizza_title">🍕 Пицца</div>
+<div class="category-title">🍕 Пицца</div>
 <div class="grid">
 
-<div class="card">
-<div class="top">
-<div class="name" data-key="pizza1_name">Пицца 4 сыра</div>
-<div class="weight">500 г</div>
-</div>
-<div class="desc" data-key="pizza1_desc">Пармезан, Чеддер, Дор Блю, Моцарелла, сливочно-сырный соус</div>
-<div class="price">600 ₽</div>
-</div>
+<div class="card"><div class="name">Пицца 4 сыра</div><div class="weight">500 г</div><div class="desc">Пармезан, чеддер, дор блю, моцарелла, сырный соус</div></div>
 
-<div class="card">
-<div class="top">
-<div class="name" data-key="pizza2_name">Пицца ветчина-грибы</div>
-<div class="weight">620 г</div>
-</div>
-<div class="desc" data-key="pizza2_desc">Томатный соус, моцарелла, ветчина, шампиньоны, петрушка</div>
-<div class="price">600 ₽</div>
-</div>
+<div class="card"><div class="name">Пицца ветчина/грибы</div><div class="weight">620 г</div><div class="desc">Томатный соус, моцарелла, ветчина, шампиньоны, петрушка</div></div>
 
-<div class="card">
-<div class="top">
-<div class="name" data-key="pizza3_name">Маргарита</div>
-<div class="weight">500 г</div>
-</div>
-<div class="desc" data-key="pizza3_desc">Томатный соус, моцарелла, помидоры, зелень</div>
-<div class="price">600 ₽</div>
-</div>
+<div class="card"><div class="name">Маргарита</div><div class="weight">500 г</div><div class="desc">Томатный соус, моцарелла, помидоры, зелень</div></div>
 
 </div>
 
-<div class="category-title" data-key="salad_title">🥗 Салаты</div>
+<div class="category-title">🍔 Бургеры и закуски</div>
 <div class="grid">
 
-<div class="card">
-<div class="top">
-<div class="name" data-key="salad1_name">Цезарь с курицей</div>
-<div class="weight">220 г</div>
-</div>
-<div class="desc" data-key="salad1_desc">Айсберг, курица, яйцо перепелиное, черри, крутоны, пармезан, соус Цезарь</div>
-<div class="price">450 ₽</div>
-</div>
+<div class="card"><div class="name">Бургер</div><div class="weight">275 г</div><div class="desc">Булочка, сырный/BBQ соус, салат, чеддер, говяжья котлета, помидор, лук, огурец маринованный</div></div>
 
-<div class="card">
-<div class="top">
-<div class="name" data-key="salad2_name">Цезарь с семгой</div>
-<div class="weight">220 г</div>
-</div>
-<div class="desc" data-key="salad2_desc">Айсберг, семга, яйцо перепелиное, черри, крутоны, пармезан</div>
-<div class="price">750 ₽</div>
-</div>
+<div class="card"><div class="name">Сэндвич</div><div class="weight">150 г</div><div class="desc">Хлеб, сыр, ветчина, кетчуп, салат</div></div>
 
-<div class="card">
-<div class="top">
-<div class="name" data-key="salad3_name">Цезарь с креветками</div>
-<div class="weight">220 г</div>
-</div>
-<div class="desc" data-key="salad3_desc">Айсберг, креветки, яйцо, черри, пармезан</div>
-<div class="price">800 ₽</div>
-</div>
+<div class="card"><div class="name">Фри</div><div class="weight">120 г</div><div class="desc">Картофель, соль, паприка</div></div>
 
-<div class="card">
-<div class="top">
-<div class="name" data-key="salad4_name">Салат с хрустящими баклажанами</div>
-<div class="weight">220 г</div>
-</div>
-<div class="desc" data-key="salad4_desc">Баклажаны, черри, фета, кунжут, чили</div>
-<div class="price">350 ₽</div>
-</div>
+<div class="card"><div class="name">Картофель по-деревенски</div><div class="weight">150 г</div><div class="desc">Картофель, специи</div></div>
 
-<div class="card">
-<div class="top">
-<div class="name" data-key="salad5_name">Греческий</div>
-<div class="weight">175 г</div>
-</div>
-<div class="desc" data-key="salad5_desc">Огурец, помидор, перец, маслины, фета</div>
-<div class="price">300 ₽</div>
-</div>
+<div class="card"><div class="name">Наггетсы</div><div class="weight">125 г (6 шт)</div></div>
+
+<div class="card"><div class="name">Креветки в кляре</div><div class="weight">200 г (5 шт)</div></div>
+
+<div class="card"><div class="name">Кольца кальмара</div><div class="weight">7 шт</div></div>
+
+<div class="card"><div class="name">Крылья BBQ</div><div class="weight">200 г (4 шт)</div></div>
+
+<div class="card"><div class="name">Гренки чесночные</div><div class="weight">100 г (8 шт)</div></div>
 
 </div>
 
-<div class="category-title" data-key="pasta_title">🍝 Паста</div>
+<div class="category-title">🥗 Салаты</div>
 <div class="grid">
 
-<div class="card">
-<div class="name" data-key="pasta1_name">Карбонара</div>
-<div class="desc" data-key="pasta1_desc">Бекон, желток, сливки, пармезан</div>
-<div class="price">420 ₽</div>
-</div>
+<div class="card"><div class="name">Цезарь с курицей</div><div class="weight">220 г</div></div>
+<div class="card"><div class="name">Цезарь с семгой</div><div class="weight">220 г</div></div>
+<div class="card"><div class="name">Цезарь с креветкой</div><div class="weight">220 г</div></div>
 
-<div class="card">
-<div class="name" data-key="pasta2_name">Феттучини с курицей и грибами</div>
-<div class="desc" data-key="pasta2_desc">Курица, шампиньоны, сливки</div>
-<div class="price">450 ₽</div>
-</div>
+<div class="card"><div class="name">Баклажаны хрустящие</div><div class="weight">220 г</div></div>
 
-<div class="card">
-<div class="name" data-key="pasta3_name">Паста с морепродуктами</div>
-<div class="desc" data-key="pasta3_desc">Креветки, песто, сливки</div>
-<div class="price">550 ₽</div>
-</div>
+<div class="card"><div class="name">Греческий</div><div class="weight">175 г</div></div>
 
 </div>
 
-<div class="category-title" data-key="burger_title">🍔 Бургеры и закуски</div>
+<div class="category-title">🍝 Паста</div>
 <div class="grid">
 
-<div class="card"><div class="name" data-key="burger1_name">Бургер</div><div class="price">350 ₽</div></div>
-<div class="card"><div class="name" data-key="burger2_name">Сэндвич</div><div class="price">250 ₽</div></div>
-<div class="card"><div class="name" data-key="burger3_name">Картофель фри</div><div class="price">150 ₽</div></div>
-<div class="card"><div class="name" data-key="burger4_name">Картофель по-деревенски</div><div class="price">210 ₽</div></div>
-<div class="card"><div class="name" data-key="burger5_name">Наггетсы</div><div class="price">250 ₽</div></div>
-<div class="card"><div class="name" data-key="burger6_name">Креветки в кляре</div><div class="price">550 ₽</div></div>
-<div class="card"><div class="name" data-key="burger7_name">Кольца кальмара</div><div class="price">350 ₽</div></div>
-<div class="card"><div class="name" data-key="burger8_name">Крылья BBQ</div><div class="price">350 ₽</div></div>
-<div class="card"><div class="name" data-key="burger9_name">Гренки чесночные</div><div class="price">190 ₽</div></div>
+<div class="card"><div class="name">Карбонара</div><div class="weight">245 г</div></div>
+<div class="card"><div class="name">Феттучини с курицей и грибами</div><div class="weight">285 г</div></div>
+<div class="card"><div class="name">Паста с креветками</div><div class="weight">250 г</div></div>
+
+</div>
+
+<div class="category-title">🧀 Нарезки</div>
+<div class="grid">
+
+<div class="card"><div class="name">Сырная нарезка</div><div class="weight">370 г</div></div>
+<div class="card"><div class="name">Сырная нарезка</div><div class="weight">200 г</div></div>
+
+<div class="card"><div class="name">Мясная нарезка</div><div class="weight">320 г</div></div>
+<div class="card"><div class="name">Мясная нарезка</div><div class="weight">200 г</div></div>
+
+</div>
+
+<div class="category-title">🍺 Сеты</div>
+<div class="grid">
+
+<div class="card"><div class="name">Пивной сет с чесночным соусом</div><div class="weight">350 г</div></div>
+<div class="card"><div class="name">Пивной сет с креветками</div><div class="weight">850 г</div></div>
 
 </div>
 
 </div>
 
-<!-- OTHER MENUS -->
-<div id="preorder" class="menu"><h2 data-key="preorder">По предзаказу</h2></div>
-<div id="hotel" class="menu"><h2 data-key="hotel">Меню гостиницы</h2></div>
+<!-- OTHER -->
+<div id="preorder" class="menu"><h2>По предзаказу</h2></div>
+<div id="hotel" class="menu"><h2>Меню гостиницы</h2></div>
 
 </div>
 
@@ -325,56 +227,14 @@ document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
 btn.classList.add('active');
 }
 
-function searchMenu(v){
-v=v.toLowerCase();
-document.querySelectorAll('.card').forEach(c=>{
-c.style.display=c.innerText.toLowerCase().includes(v)?'block':'none';
-});
-}
-
-/* TRANSLATIONS */
-const translations = {
-ru:{
-search:"Поиск блюда...",
-pizza_title:"🍕 Пицца",
-salad_title:"🥗 Салаты",
-pasta_title:"🍝 Паста",
-burger_title:"🍔 Бургеры и закуски",
-preorder:"По предзаказу",
-hotel:"Меню гостиницы"
-},
-
-en:{
-search:"Search dishes...",
-pizza_title:"🍕 Pizza",
-salad_title:"🥗 Salads",
-pasta_title:"🍝 Pasta",
-burger_title:"🍔 Burgers & Snacks",
-preorder:"Pre-order",
-hotel:"Hotel Menu"
-}
-};
-
+/* LANG FIX */
 function setLang(lang){
+document.getElementById('ruBtn').classList.toggle('active',lang==='ru');
+document.getElementById('enBtn').classList.toggle('active',lang==='en');
 
-document.getElementById('ruBtn').classList.remove('active');
-document.getElementById('enBtn').classList.remove('active');
-
-if(lang==='ru') document.getElementById('ruBtn').classList.add('active');
-if(lang==='en') document.getElementById('enBtn').classList.add('active');
-
-document.documentElement.lang = lang;
-
-/* update text */
-document.querySelectorAll('[data-key]').forEach(el=>{
-const key = el.getAttribute('data-key');
-if(translations[lang][key]){
-el.innerText = translations[lang][key];
-}
-});
-
-/* search */
-document.getElementById('search').placeholder = translations[lang].search;
+document.querySelectorAll('.tab')[0].innerText = lang==='ru'?'Lounge Bar':'Lounge Bar';
+document.querySelectorAll('.tab')[1].innerText = lang==='ru'?'По предзаказу':'Pre-order';
+document.querySelectorAll('.tab')[2].innerText = lang==='ru'?'Hotel':'Hotel';
 }
 
 </script>
