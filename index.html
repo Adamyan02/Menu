@@ -81,9 +81,6 @@ margin:auto;
 padding:25px;
 }
 
-.menu{display:none}
-.menu.active{display:block}
-
 .category-title{
 font-size:28px;
 color:#f1d19a;
@@ -102,7 +99,6 @@ background:rgba(255,255,255,.04);
 border:1px solid rgba(241,209,154,.12);
 border-radius:18px;
 padding:15px;
-overflow:hidden;
 }
 
 .name{font-weight:bold;font-size:18px}
@@ -136,306 +132,25 @@ font-size:13px;
 
 <h1 id="logo"></h1>
 
-<div class="tabs">
-<button class="tab active" onclick="showMenu('lounge',this)"></button>
-<button class="tab" onclick="showMenu('preorder',this)"></button>
-<button class="tab" onclick="showMenu('hotel',this)"></button>
-<button class="tab" onclick="showMenu('bar',this)"></button>
-</div>
+<div class="tabs" id="tabs"></div>
 
 </div>
 
-<div class="container">
-
-<!-- LOUNGE -->
-<div id="lounge" class="menu active">
-
-<div class="category-title" data-cat="pizza"></div>
-<div class="grid">
-
-<div class="card" data-id="pizza4"><div class="name"></div><div class="weight">500 g</div><div class="price"></div><div class="desc"></div></div>
-<div class="card" data-id="pizza_ham_mush"><div class="name"></div><div class="weight">620 g</div><div class="price"></div><div class="desc"></div></div>
-<div class="card" data-id="margarita"><div class="name"></div><div class="weight">500 g</div><div class="price"></div><div class="desc"></div></div>
-
-</div>
-
-<div class="category-title" data-cat="burgers"></div>
-<div class="grid">
-
-<div class="card" data-id="burger"><div class="name"></div><div class="weight">275 g</div><div class="price"></div><div class="desc"></div></div>
-<div class="card" data-id="sandwich"><div class="name"></div><div class="weight">150 g</div><div class="price"></div><div class="desc"></div></div>
-<div class="card" data-id="fries"><div class="name"></div><div class="weight">120 g</div><div class="price"></div><div class="desc"></div></div>
-<div class="card" data-id="rustic"><div class="name"></div><div class="weight">150 g</div><div class="price"></div><div class="desc"></div></div>
-
-<div class="card" data-id="nuggets"><div class="name"></div><div class="weight">6 pcs</div><div class="price"></div><div class="desc"></div></div>
-<div class="card" data-id="shrimp_tempura"><div class="name"></div><div class="weight">5 pcs</div><div class="price"></div><div class="desc"></div></div>
-<div class="card" data-id="calamari"><div class="name"></div><div class="weight">7 pcs</div><div class="price"></div><div class="desc"></div></div>
-<div class="card" data-id="wings"><div class="name"></div><div class="weight">4 pcs</div><div class="price"></div><div class="desc"></div></div>
-<div class="card" data-id="croutons"><div class="name"></div><div class="weight">8 pcs</div><div class="price"></div><div class="desc"></div></div>
-
-</div>
-
-<div class="category-title" data-cat="salads"></div>
-<div class="grid">
-
-<div class="card" data-id="caesar_chicken"><div class="name"></div><div class="weight">220 g</div><div class="price"></div><div class="desc"></div></div>
-<div class="card" data-id="caesar_salmon"><div class="name"></div><div class="weight">220 g</div><div class="price"></div><div class="desc"></div></div>
-<div class="card" data-id="caesar_shrimp"><div class="name"></div><div class="weight">220 g</div><div class="price"></div><div class="desc"></div></div>
-
-<div class="card" data-id="eggplant"><div class="name"></div><div class="weight">220 g</div><div class="price"></div><div class="desc"></div></div>
-<div class="card" data-id="greek"><div class="name"></div><div class="weight">175 g</div><div class="price"></div><div class="desc"></div></div>
-
-</div>
-
-<div class="category-title" data-cat="pasta"></div>
-<div class="grid">
-
-<div class="card" data-id="carbonara"><div class="name"></div><div class="weight">245 g</div><div class="price"></div><div class="desc"></div></div>
-<div class="card" data-id="fettuccine"><div class="name"></div><div class="weight">285 g</div><div class="price"></div><div class="desc"></div></div>
-<div class="card" data-id="shrimp_pasta"><div class="name"></div><div class="weight">250 g</div><div class="price"></div><div class="desc"></div></div>
-
-</div>
-
-<div class="category-title" data-cat="sets"></div>
-<div class="grid">
-
-<div class="card" data-id="cheese_big"><div class="name"></div><div class="weight">370 g</div><div class="price"></div><div class="desc"></div></div>
-<div class="card" data-id="cheese_small"><div class="name"></div><div class="weight">200 g</div><div class="price"></div><div class="desc"></div></div>
-
-<div class="card" data-id="meat_big"><div class="name"></div><div class="weight">320 g</div><div class="price"></div><div class="desc"></div></div>
-<div class="card" data-id="meat_small"><div class="name"></div><div class="weight">200 g</div><div class="price"></div><div class="desc"></div></div>
-
-<div class="card" data-id="beer_set_garlic"><div class="name"></div><div class="weight">350 g</div><div class="price"></div><div class="desc"></div></div>
-<div class="card" data-id="beer_set_shrimp"><div class="name"></div><div class="weight">850 g</div><div class="price"></div><div class="desc"></div></div>
-
-</div>
-
-</div>
-
-<!-- PREORDER -->
-<div id="preorder" class="menu"><h2></h2></div>
-
-<!-- HOTEL -->
-<div id="hotel" class="menu"><h2></h2></div>
-
-<div id="bar" class="menu">
-
-<div class="category-title" data-cat="bar"></div>
-
-<div class="grid">
-
-<!-- ВИСКИ -->
-<div class="card" data-id="william_lawsons"><div class="name"></div><div class="weight">50 ml</div><div class="price"></div><div class="desc"></div></div>
-<div class="card" data-id="jim_beam"><div class="name"></div><div class="weight">50 ml</div><div class="price"></div><div class="desc"></div></div>
-
-<div class="card" data-id="jameson"><div class="name"></div><div class="weight">50 ml</div><div class="price"></div><div class="desc"></div></div>
-
-<div class="card" data-id="jack_daniels"><div class="name"></div><div class="weight">50 ml</div><div class="price"></div><div class="desc"></div></div>
-
-<div class="card" data-id="makers_mark"><div class="name"></div><div class="weight">50 ml</div><div class="price"></div><div class="desc"></div></div>
-
-<div class="card" data-id="chivas_12"><div class="name"></div><div class="weight">50 ml</div><div class="price"></div><div class="desc"></div></div>
-
-<div class="card" data-id="chivas_extra"><div class="name"></div><div class="weight">50 ml</div><div class="price"></div><div class="desc"></div></div>
-
-<div class="card" data-id="glenmorangie"><div class="name"></div><div class="weight">50 ml</div><div class="price"></div><div class="desc"></div></div>
-
-<div class="card" data-id="glenfiddich"><div class="name"></div><div class="weight">50 ml</div><div class="price"></div><div class="desc"></div></div>
-
-<div class="card" data-id="macallan"><div class="name"></div><div class="weight">50 ml</div><div class="price"></div><div class="desc"></div></div>
-
-<!-- ТЕКИЛА -->
-<div class="card" data-id="olmeca_silver"><div class="name"></div><div class="weight">50 ml</div><div class="price"></div><div class="desc"></div></div>
-
-<div class="card" data-id="olmeca_gold"><div class="name"></div><div class="weight">50 ml</div><div class="price"></div><div class="desc"></div></div>
-<!-- КОНЬЯК АРМЕНИЯ -->
-<div class="card" data-id="ararat_3"></div>
-<div class="card" data-id="ararat_5"></div>
-<div class="card" data-id="ararat_7"></div>
-<div class="card" data-id="ararat_10"></div>
-<div class="card" data-id="ararat_15"></div>
-<div class="card" data-id="ararat_20"></div>
-<div class="card" data-id="ararat_25"></div>
-
-<!-- ФРАНЦИЯ -->
-<div class="card" data-id="hennessy_vs"></div>
-<div class="card" data-id="hennessy_vsop"></div>
-<div class="card" data-id="hennessy_xo"></div>
-<div class="card" data-id="martell_vs"></div>
-<div class="card" data-id="martell_vsop"></div>
-<div class="card" data-id="martell_xo"></div>
-<div class="card" data-id="courvoisier_vs"></div>
-<div class="card" data-id="remy_vs"></div>
-
-<!-- ВОДКА -->
-
-<div class="card" data-id="haski">
-    <div class="name"></div>
-    <div class="weight">50 ml</div>
-    <div class="price"></div>
-    <div class="desc"></div>
-</div>
-
-<div class="card" data-id="rus_standard">
-    <div class="name"></div>
-    <div class="weight">50 ml</div>
-    <div class="price"></div>
-    <div class="desc"></div>
-</div>
-
-<div class="card" data-id="tsarskaya">
-    <div class="name"></div>
-    <div class="weight">50 ml</div>
-    <div class="price"></div>
-    <div class="desc"></div>
-</div>
-
-<div class="card" data-id="kremlin">
-    <div class="name"></div>
-    <div class="weight">50 ml</div>
-    <div class="price"></div>
-    <div class="desc"></div>
-</div>
-
-<div class="card" data-id="finlandia">
-    <div class="name"></div>
-    <div class="weight">50 ml</div>
-    <div class="price"></div>
-    <div class="desc"></div>
-</div>
-
-<div class="card" data-id="beluga">
-    <div class="name"></div>
-    <div class="weight">50 ml</div>
-    <div class="price"></div>
-    <div class="desc"></div>
-</div>
-
-<div class="card" data-id="arctic">
-    <div class="name"></div>
-    <div class="weight">50 ml</div>
-    <div class="price"></div>
-    <div class="desc"></div>
-</div>
-
-<div class="card" data-id="ohanyan">
-    <div class="name"></div>
-    <div class="weight">50 ml</div>
-    <div class="price"></div>
-    <div class="desc"></div>
-</div>
-
-<div class="card" data-id="grey_goose">
-    <div class="name"></div>
-    <div class="weight">50 ml</div>
-    <div class="price"></div>
-    <div class="desc"></div>
-</div>
-<!-- РОМ -->
-<div class="card" data-id="bacardi_blanca"></div>
-<div class="card" data-id="bacardi_oro"></div>
-<div class="card" data-id="bacardi_negra"></div>
-<div class="card" data-id="captain_morgan"></div>
-
-<!-- ДЖИН -->
-<div class="card" data-id="beefeater"></div>
-
-<!-- ЛИКЁРЫ -->
-
-<div class="card" data-id="aperol">
-    <div class="name"></div>
-    <div class="weight">50 ml</div>
-    <div class="price"></div>
-    <div class="desc"></div>
-</div>
-
-<div class="card" data-id="jager">
-    <div class="name"></div>
-    <div class="weight">50 ml</div>
-    <div class="price"></div>
-    <div class="desc"></div>
-</div>
-
-<div class="card" data-id="baileys">
-    <div class="name"></div>
-    <div class="weight">50 ml</div>
-    <div class="price"></div>
-    <div class="desc"></div>
-</div>
-
-<div class="card" data-id="sambuca">
-    <div class="name"></div>
-    <div class="weight">50 ml</div>
-    <div class="price"></div>
-    <div class="desc"></div>
-</div>
-
-<div class="card" data-id="campari">
-    <div class="name"></div>
-    <div class="weight">50 ml</div>
-    <div class="price"></div>
-    <div class="desc"></div>
-</div>
-
-<div class="card" data-id="absinthe">
-    <div class="name"></div>
-    <div class="weight">50 ml</div>
-    <div class="price"></div>
-    <div class="desc"></div>
-</div>
-
-<!-- ВЕРМУТ -->
-<div class="card" data-id="martini_rosso"></div>
-<div class="card" data-id="martini_bianco"></div>
-<div class="card" data-id="martini_dry"></div>
-
-<!-- ИГРИСТОЕ -->
-<div class="card" data-id="lambrusco"></div>
-<div class="card" data-id="canti"></div>
-<div class="card" data-id="mondoro"></div>
-
-<!-- ПИВО -->
-<div class="card" data-id="beer_armenia"></div>
-<div class="card" data-id="beer_czech"></div>
-<div class="card" data-id="beer_germany"></div>
-
-<!-- КОКТЕЙЛИ -->
-<div class="card" data-id="mojito"></div>
-<div class="card" data-id="whiskey_cola"></div>
-<div class="card" data-id="daiquiri"></div>
-<div class="card" data-id="espresso_martini"></div>
-
-<!-- БЕЗАЛКОГОЛЬНОЕ -->
-<div class="card" data-id="cola"></div>
-<div class="card" data-id="water"></div>
-<div class="card" data-id="jermuk"></div>
-<div class="card" data-id="compote"></div>
-<div class="card" data-id="mors"></div>
-<div class="card" data-id="lemonade"></div>
-
-<!-- ДОПОЛНИТЕЛЬНО -->
-<div class="card" data-id="syrups"></div>
-<div class="card" data-id="milk"></div>
-<div class="card" data-id="cream"></div>
-<div class="card" data-id="honey"></div>
-<div class="card" data-id="jam"></div>
-
-</div>
-</div>
+<div class="container" id="app"></div>
 
 <script>
 
-function showMenu(id,btn){
-document.querySelectorAll('.menu').forEach(m=>m.classList.remove('active'));
-document.getElementById(id).classList.add('active');
-document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-btn.classList.add('active');
-}
+/* =========================
+   UI
+========================= */
 
 const ui = {
 ru:{
 logo:"MENUA Lounge Bar",
-tabs:["Lounge Bar","По предзаказу","Hotel","Bar"],
+tabs:[
+{id:"lounge",label:"Lounge Bar"},
+{id:"bar",label:"Bar"}
+],
 cats:{
 pizza:"🍕 Пицца",
 burgers:"🍔 Бургеры и закуски",
@@ -443,13 +158,14 @@ salads:"🥗 Салаты",
 pasta:"🍝 Паста",
 sets:"🍺 Сеты",
 bar:"🍸 Бар"
-},
-preorder:"По предзаказу",
-hotel:"Меню гостиницы"
+}
 },
 en:{
 logo:"MENUA Lounge Bar",
-tabs:["Lounge Bar","Pre-order","Hotel","Bar"],
+tabs:[
+{id:"lounge",label:"Lounge Bar"},
+{id:"bar",label:"Bar"}
+],
 cats:{
 pizza:"🍕 Pizza",
 burgers:"🍔 Burgers & Snacks",
@@ -457,166 +173,205 @@ salads:"🥗 Salads",
 pasta:"🍝 Pasta",
 sets:"🍺 Sets",
 bar:"🍸 Bar"
-},
-preorder:"Pre-order",
-hotel:"Hotel menu"
+}
 }
 };
 
-const menu = {
-burger:{name:{ru:"Бургер",en:"Burger"},price:"350 ₽",desc:{ru:"Булочка, соус, салат, чеддер, говядина",en:"Bun, sauce, lettuce, cheddar, beef"}},
-sandwich:{name:{ru:"Сэндвич",en:"Sandwich"},price:"250 ₽",desc:{ru:"Хлеб, сыр, ветчина",en:"Bread, cheese, ham"}},
-fries:{name:{ru:"Картофель фри",en:"Fries"},price:"150 ₽",desc:{ru:"Картофель, специи",en:"Potatoes, spices"}},
-rustic:{name:{ru:"Картофель по-деревенски",en:"Rustic potatoes"},price:"210 ₽",desc:{ru:"Картофель, специи",en:"Potatoes, spices"}},
+/* =========================
+   FULL MENU RESTORED
+========================= */
 
-pizza4:{name:{ru:"Пицца 4 сыра",en:"4 Cheese Pizza"},price:"600 ₽",desc:{ru:"4 сыра",en:"4 cheeses"}},
-pizza_ham_mush:{name:{ru:"Ветчина-грибы",en:"Ham & Mushroom"},price:"600 ₽",desc:{ru:"Соус, сыр, ветчина, грибы",en:"Sauce, cheese, ham, mushrooms"}},
-margarita:{name:{ru:"Маргарита",en:"Margherita"},price:"600 ₽",desc:{ru:"Помидоры, сыр",en:"Tomatoes, cheese"}},
+const menu = [
 
-carbonara:{name:{ru:"Карбонара",en:"Carbonara"},price:"420 ₽",desc:{ru:"Паста, бекон, сливки",en:"Pasta, bacon, cream"}},
-fettuccine:{name:{ru:"Курица и грибы",en:"Chicken mushroom"},price:"450 ₽",desc:{ru:"Паста, курица, грибы",en:"Pasta, chicken, mushrooms"}},
-shrimp_pasta:{name:{ru:"Морепродукты",en:"Seafood pasta"},price:"550 ₽",desc:{ru:"Креветки, соус",en:"Shrimp, sauce"}},
+/* ================= LOUNGE ================= */
 
-cheese_big:{name:{ru:"Сырная нарезка большая",en:"Cheese platter big"},price:"850 ₽",desc:{ru:"Сыры",en:"Cheeses"}},
-cheese_small:{name:{ru:"Сырная нарезка малая",en:"Cheese platter small"},price:"580 ₽",desc:{ru:"Сыры",en:"Cheeses"}},
+{tab:"lounge",cat:"pizza",weight:"500 g",name:{ru:"Пицца 4 сыра",en:"4 Cheese Pizza"},price:"600 ₽",desc:{ru:"4 сыра",en:"4 cheeses"}},
+{tab:"lounge",cat:"pizza",weight:"500 g",name:{ru:"Ветчина-грибы",en:"Ham & Mushroom"},price:"600 ₽",desc:{ru:"соус, сыр, ветчина, грибы",en:"sauce, cheese, ham, mushrooms"}},
+{tab:"lounge",cat:"pizza",weight:"500 g",name:{ru:"Маргарита",en:"Margherita"},price:"600 ₽",desc:{ru:"помидоры, сыр",en:"tomatoes, cheese"}},
 
-meat_big:{name:{ru:"Мясная нарезка большая",en:"Meat platter big"},price:"950 ₽",desc:{ru:"Мясо",en:"Meat"}},
-meat_small:{name:{ru:"Мясная нарезка малая",en:"Meat platter small"},price:"650 ₽",desc:{ru:"Мясо",en:"Meat"}},
+{tab:"lounge",cat:"burgers",weight:"275 g",name:{ru:"Бургер",en:"Burger"},price:"350 ₽",desc:{ru:"булочка, соус, салат, чеддер, говядина",en:"bun, sauce, lettuce, cheddar, beef"}},
+{tab:"lounge",cat:"burgers",weight:"150 g",name:{ru:"Сэндвич",en:"Sandwich"},price:"250 ₽",desc:{ru:"хлеб, сыр, ветчина",en:"bread, cheese, ham"}},
+{tab:"lounge",cat:"burgers",weight:"120 g",name:{ru:"Картофель фри",en:"Fries"},price:"150 ₽",desc:{ru:"картофель, специи",en:"potatoes, spices"}},
+{tab:"lounge",cat:"burgers",weight:"150 g",name:{ru:"Картофель по-деревенски",en:"Rustic potatoes"},price:"210 ₽",desc:{ru:"",en:""}},
 
-shrimp_tempura:{name:{ru:"Креветки в кляре",en:"Shrimp tempura"},price:"550 ₽",desc:{ru:"5 шт",en:"5 pcs"}},
-nuggets:{name:{ru:"Наггетсы",en:"Nuggets"},price:"250 ₽",desc:{ru:"6 шт",en:"6 pcs"}},
-calamari:{name:{ru:"Кольца кальмара",en:"Calamari rings"},price:"350 ₽",desc:{ru:"7 шт",en:"7 pcs"}},
-wings:{name:{ru:"Крылья BBQ",en:"BBQ wings"},price:"350 ₽",desc:{ru:"4 шт",en:"4 pcs"}},
-croutons:{name:{ru:"Гренки",en:"Croutons"},price:"190 ₽",desc:{ru:"8 шт",en:"8 pcs"}},
+{tab:"lounge",cat:"burgers",weight:"6 pcs",name:{ru:"Наггетсы",en:"Nuggets"},price:"250 ₽",desc:{ru:"",en:""}},
+{tab:"lounge",cat:"burgers",weight:"5 pcs",name:{ru:"Креветки в кляре",en:"Shrimp tempura"},price:"550 ₽",desc:{ru:"",en:""}},
+{tab:"lounge",cat:"burgers",weight:"7 pcs",name:{ru:"Кольца кальмара",en:"Calamari"},price:"350 ₽",desc:{ru:"",en:""}},
+{tab:"lounge",cat:"burgers",weight:"4 pcs",name:{ru:"Крылья BBQ",en:"Wings"},price:"350 ₽",desc:{ru:"",en:""}},
+{tab:"lounge",cat:"burgers",weight:"8 pcs",name:{ru:"Гренки",en:"Croutons"},price:"190 ₽",desc:{ru:"",en:""}},
 
-caesar_chicken:{name:{ru:"Цезарь с курицей",en:"Chicken Caesar"},price:"450 ₽",desc:{ru:"Салат",en:"Salad"}},
-caesar_salmon:{name:{ru:"Цезарь с семгой",en:"Salmon Caesar"},price:"750 ₽",desc:{ru:"Салат",en:"Salad"}},
-caesar_shrimp:{name:{ru:"Цезарь с креветками",en:"Shrimp Caesar"},price:"800 ₽",desc:{ru:"Салат",en:"Salad"}},
+{tab:"lounge",cat:"salads",weight:"220 g",name:{ru:"Цезарь с курицей",en:"Chicken Caesar"},price:"450 ₽",desc:{ru:"",en:""}},
+{tab:"lounge",cat:"salads",weight:"220 g",name:{ru:"Цезарь с семгой",en:"Salmon Caesar"},price:"750 ₽",desc:{ru:"",en:""}},
+{tab:"lounge",cat:"salads",weight:"220 g",name:{ru:"Цезарь с креветками",en:"Shrimp Caesar"},price:"800 ₽",desc:{ru:"",en:""}},
+{tab:"lounge",cat:"salads",weight:"220 g",name:{ru:"Баклажаны",en:"Eggplant"},price:"350 ₽",desc:{ru:"",en:""}},
+{tab:"lounge",cat:"salads",weight:"175 g",name:{ru:"Греческий",en:"Greek"},price:"300 ₽",desc:{ru:"",en:""}},
 
-eggplant:{name:{ru:"Баклажаны",en:"Eggplant"},price:"350 ₽",desc:{ru:"Баклажан",en:"Eggplant"}},
-greek:{name:{ru:"Греческий",en:"Greek salad"},price:"300 ₽",desc:{ru:"Овощи",en:"Vegetables"}},
+{tab:"lounge",cat:"pasta",weight:"245 g",name:{ru:"Карбонара",en:"Carbonara"},price:"420 ₽",desc:{ru:"",en:""}},
+{tab:"lounge",cat:"pasta",weight:"285 g",name:{ru:"Курица и грибы",en:"Chicken mushroom"},price:"450 ₽",desc:{ru:"",en:""}},
+{tab:"lounge",cat:"pasta",weight:"250 g",name:{ru:"Морепродукты",en:"Seafood pasta"},price:"550 ₽",desc:{ru:"",en:""}},
 
-beer_set_garlic:{name:{ru:"Пивной сет чесночный",en:"Beer set garlic"},price:"1050 ₽",desc:{ru:"Сет",en:"Set"}},
-beer_set_shrimp:{name:{ru:"Пивной сет с креветками",en:"Beer set shrimp"},price:"1650 ₽",desc:{ru:"Сет",en:"Set"}},
+{tab:"lounge",cat:"sets",weight:"370 g",name:{ru:"Сырная нарезка большая",en:"Cheese platter big"},price:"850 ₽",desc:{ru:"",en:""}},
+{tab:"lounge",cat:"sets",weight:"200 g",name:{ru:"Сырная нарезка малая",en:"Cheese platter small"},price:"580 ₽",desc:{ru:"",en:""}},
+{tab:"lounge",cat:"sets",weight:"320 g",name:{ru:"Мясная нарезка большая",en:"Meat platter big"},price:"950 ₽",desc:{ru:"",en:""}},
+{tab:"lounge",cat:"sets",weight:"200 g",name:{ru:"Мясная нарезка малая",en:"Meat platter small"},price:"650 ₽",desc:{ru:"",en:""}},
+{tab:"lounge",cat:"sets",weight:"350 g",name:{ru:"Пивной сет чесночный",en:"Beer set garlic"},price:"1050 ₽",desc:{ru:"",en:""}},
+{tab:"lounge",cat:"sets",weight:"850 g",name:{ru:"Пивной сет с креветками",en:"Beer set shrimp"},price:"1650 ₽",desc:{ru:"",en:""}},
 
-william_lawsons:{name:{ru:"William Lawsons",en:"William Lawsons"},price:"260 ₽",desc:{ru:"",en:""}},
-jim_beam:{name:{ru:"Jim Beam",en:"Jim Beam"},price:"400 ₽",desc:{ru:"",en:""}},
-jameson:{name:{ru:"Jameson",en:"Jameson"},price:"550 ₽",desc:{ru:"",en:""}},
-jack_daniels:{name:{ru:"Jack Daniels",en:"Jack Daniels"},price:"600 ₽",desc:{ru:"",en:""}},
-makers_mark:{name:{ru:"Makers Mark",en:"Makers Mark"},price:"980 ₽",desc:{ru:"",en:""}},
-chivas_12:{name:{ru:"Chivas 12",en:"Chivas 12"},price:"950 ₽",desc:{ru:"",en:""}},
-chivas_extra:{name:{ru:"Chivas Extra",en:"Chivas Extra"},price:"1050 ₽",desc:{ru:"",en:""}},
-glenmorangie:{name:{ru:"Glenmorangie 10",en:"Glenmorangie 10"},price:"1700 ₽",desc:{ru:"",en:""}},
-glenfiddich:{name:{ru:"Glenfiddich 12",en:"Glenfiddich 12"},price:"1800 ₽",desc:{ru:"",en:""}},
-macallan:{name:{ru:"Macallan 12",en:"Macallan 12"},price:"3200 ₽",desc:{ru:"",en:""}},
+/* ================= BAR ================= */
 
-olmeca_silver:{name:{ru:"Olmeca Silver",en:"Olmeca Silver"},price:"450 ₽",desc:{ru:"",en:""}},
-olmeca_gold:{name:{ru:"Olmeca Gold",en:"Olmeca Gold"},price:"550 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"William Lawsons",en:"William Lawsons"},price:"260 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Jim Beam",en:"Jim Beam"},price:"400 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Jameson",en:"Jameson"},price:"550 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Jack Daniels",en:"Jack Daniels"},price:"600 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Makers Mark",en:"Makers Mark"},price:"980 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Chivas 12",en:"Chivas 12"},price:"950 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Chivas Extra",en:"Chivas Extra"},price:"1050 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Glenmorangie",en:"Glenmorangie"},price:"1700 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Glenfiddich",en:"Glenfiddich"},price:"1800 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Macallan",en:"Macallan"},price:"3200 ₽",desc:{ru:"",en:""}},
 
-ararat_3:{name:{ru:"Арарат 3*",en:"Ararat 3*"},price:"290 ₽",desc:{ru:"",en:""}},
-ararat_5:{name:{ru:"Арарат 5*",en:"Ararat 5*"},price:"350 ₽",desc:{ru:"",en:""}},
-ararat_7:{name:{ru:"Арарат 7*",en:"Ararat 7*"},price:"490 ₽",desc:{ru:"",en:""}},
-ararat_10:{name:{ru:"Арарат 10*",en:"Ararat 10*"},price:"700 ₽",desc:{ru:"",en:""}},
-ararat_15:{name:{ru:"Арарат 15*",en:"Ararat 15*"},price:"1250 ₽",desc:{ru:"",en:""}},
-ararat_20:{name:{ru:"Арарат 20*",en:"Ararat 20*"},price:"1700 ₽",desc:{ru:"",en:""}},
-ararat_25:{name:{ru:"Арарат 25*",en:"Ararat 25*"},price:"4000 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Olmeca Silver",en:"Olmeca Silver"},price:"450 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Olmeca Gold",en:"Olmeca Gold"},price:"550 ₽",desc:{ru:"",en:""}},
 
-hennessy_vs:{name:{ru:"Hennessy VS",en:"Hennessy VS"},price:"1200 ₽",desc:{ru:"",en:""}},
-hennessy_vsop:{name:{ru:"Hennessy VSOP",en:"Hennessy VSOP"},price:"1500 ₽",desc:{ru:"",en:""}},
-hennessy_xo:{name:{ru:"Hennessy XO",en:"Hennessy XO"},price:"5000 ₽",desc:{ru:"",en:""}},
-martell_vs:{name:{ru:"Martell VS",en:"Martell VS"},price:"1200 ₽",desc:{ru:"",en:""}},
-martell_vsop:{name:{ru:"Martell VSOP",en:"Martell VSOP"},price:"1500 ₽",desc:{ru:"",en:""}},
-martell_xo:{name:{ru:"Martell XO",en:"Martell XO"},price:"5000 ₽",desc:{ru:"",en:""}},
-courvoisier_vs:{name:{ru:"Courvoisier VS",en:"Courvoisier VS"},price:"1200 ₽",desc:{ru:"",en:""}},
-remy_vs:{name:{ru:"Remy Martin VS",en:"Remy Martin VS"},price:"1200 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Ararat 3*",en:"Ararat 3*"},price:"290 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Ararat 5*",en:"Ararat 5*"},price:"350 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Ararat 7*",en:"Ararat 7*"},price:"490 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Ararat 10*",en:"Ararat 10*"},price:"700 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Ararat 15*",en:"Ararat 15*"},price:"1250 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Ararat 20*",en:"Ararat 20*"},price:"1700 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Ararat 25*",en:"Ararat 25*"},price:"4000 ₽",desc:{ru:"",en:""}},
 
-haski:{name:{ru:"Хаски",en:"Haski"},price:"150 ₽",desc:{ru:"",en:""}},
-rus_standard:{name:{ru:"Русский Стандарт",en:"Russian Standard"},price:"190 ₽",desc:{ru:"",en:""}},
-tsarskaya:{name:{ru:"Царская Золотая",en:"Tsarskaya Gold"},price:"200 ₽",desc:{ru:"",en:""}},
-kremlin:{name:{ru:"Kremlin",en:"Kremlin"},price:"240 ₽",desc:{ru:"",en:""}},
-beluga:{name:{ru:"Белуга",en:"Beluga"},price:"330 ₽",desc:{ru:"",en:""}},
-finlandia:{name:{ru:"Финляндия",en:"Finlandia"},price:"330 ₽",desc:{ru:"",en:""}},
-grey_goose:{name:{ru:"Grey Goose",en:"Grey Goose"},price:"600 ₽",desc:{ru:"",en:""}},
-arctic:{name:{ru:"Арцах (в ассортименте)",en:"Artsakh"},price:"350 ₽",desc:{ru:"",en:""}},
-ohanyan:{name:{ru:"Ohanyan Vodka Ice",en:"Ohanyan Vodka Ice"},price:"350 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Hennessy VS",en:"Hennessy VS"},price:"1200 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Hennessy VSOP",en:"Hennessy VSOP"},price:"1500 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Hennessy XO",en:"Hennessy XO"},price:"5000 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Martell VS",en:"Martell VS"},price:"1200 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Martell VSOP",en:"Martell VSOP"},price:"1500 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Martell XO",en:"Martell XO"},price:"5000 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Courvoisier VS",en:"Courvoisier VS"},price:"1200 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Remy Martin VS",en:"Remy Martin VS"},price:"1200 ₽",desc:{ru:"",en:""}},
 
-bacardi_blanca:{name:{ru:"Bacardi Carta Blanca",en:"Bacardi Carta Blanca"},price:"400 ₽",desc:{ru:"",en:""}},
-bacardi_oro:{name:{ru:"Bacardi Carta Oro",en:"Bacardi Carta Oro"},price:"450 ₽",desc:{ru:"",en:""}},
-bacardi_negra:{name:{ru:"Bacardi Carta Negra",en:"Bacardi Carta Negra"},price:"500 ₽",desc:{ru:"",en:""}},
-captain_morgan:{name:{ru:"Captain Morgan Spiced Gold",en:"Captain Morgan Spiced Gold"},price:"350 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Haski",en:"Haski"},price:"150 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Russian Standard",en:"Russian Standard"},price:"190 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Tsarskaya Gold",en:"Tsarskaya Gold"},price:"200 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Kremlin",en:"Kremlin"},price:"240 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Beluga",en:"Beluga"},price:"330 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Finlandia",en:"Finlandia"},price:"330 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Grey Goose",en:"Grey Goose"},price:"600 ₽",desc:{ru:"",en:""}},
 
-beefeater:{name:{ru:"Beefeater",en:"Beefeater"},price:"550 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Bacardi Blanca",en:"Bacardi Blanca"},price:"400 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Bacardi Oro",en:"Bacardi Oro"},price:"450 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Bacardi Negra",en:"Bacardi Negra"},price:"500 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Captain Morgan",en:"Captain Morgan"},price:"350 ₽",desc:{ru:"",en:""}},
 
-aperol:{name:{ru:"Aperol",en:"Aperol"},price:"350 ₽",desc:{ru:"",en:""}},
-jager:{name:{ru:"Jagermeister",en:"Jagermeister"},price:"400 ₽",desc:{ru:"",en:""}},
-baileys:{name:{ru:"Baileys",en:"Baileys"},price:"480 ₽",desc:{ru:"",en:""}},
-sambuca:{name:{ru:"Sambuca",en:"Sambuca"},price:"370 ₽",desc:{ru:"",en:""}},
-campari:{name:{ru:"Campari",en:"Campari"},price:"350 ₽",desc:{ru:"",en:""}},
-absinthe:{name:{ru:"Абсент",en:"Absinthe"},price:"450 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Beefeater",en:"Beefeater"},price:"550 ₽",desc:{ru:"",en:""}},
 
-martini_rosso:{name:{ru:"Martini Rosso",en:"Martini Rosso"},price:"220 ₽",desc:{ru:"",en:""}},
-martini_bianco:{name:{ru:"Martini Bianco",en:"Martini Bianco"},price:"220 ₽",desc:{ru:"",en:""}},
-martini_dry:{name:{ru:"Martini Dry",en:"Martini Dry"},price:"220 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Aperol",en:"Aperol"},price:"350 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Jagermeister",en:"Jagermeister"},price:"400 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Baileys",en:"Baileys"},price:"480 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Sambuca",en:"Sambuca"},price:"370 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Campari",en:"Campari"},price:"350 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Absinthe",en:"Absinthe"},price:"450 ₽",desc:{ru:"",en:""}},
 
-lambrusco:{name:{ru:"Lambrusco (Италия)",en:"Lambrusco"},price:"1700 ₽",desc:{ru:"",en:""}},
-canti:{name:{ru:"Canti (Италия)",en:"Canti"},price:"3200 ₽",desc:{ru:"",en:""}},
-mondoro:{name:{ru:"Mondoro (Италия)",en:"Mondoro"},price:"4300 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Martini Rosso",en:"Martini Rosso"},price:"220 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Martini Bianco",en:"Martini Bianco"},price:"220 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Martini Dry",en:"Martini Dry"},price:"220 ₽",desc:{ru:"",en:""}},
 
-beer_armenia:{name:{ru:"Пиво (Армения)",en:"Beer Armenia"},price:"300 ₽",desc:{ru:"в ассортименте",en:"assorted"}},
-beer_czech:{name:{ru:"Пиво (Чехия)",en:"Beer Czech"},price:"450 ₽",desc:{ru:"в ассортименте",en:"assorted"}},
-beer_germany:{name:{ru:"Пиво (Германия)",en:"Beer Germany"},price:"450 ₽",desc:{ru:"в ассортименте",en:"assorted"}},
+{tab:"bar",cat:"bar",weight:"",name:{ru:"Мохито",en:"Mojito"},price:"450 ₽",desc:{ru:"Ром, мята, лайм",en:"Rum, mint, lime"}},
+{tab:"bar",cat:"bar",weight:"",name:{ru:"Виски-кола",en:"Whiskey Cola"},price:"450 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"",name:{ru:"Дайкири",en:"Daiquiri"},price:"600 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"",name:{ru:"Эспрессо Мартини",en:"Espresso Martini"},price:"600 ₽",desc:{ru:"",en:""}},
 
-mojito:{name:{ru:"Мохито",en:"Mojito"},price:"450 ₽",desc:{ru:"Ром, мята, лайм",en:"Rum, mint, lime"}},
-whiskey_cola:{name:{ru:"Виски-кола",en:"Whiskey Cola"},price:"450 ₽",desc:{ru:"Виски, кола",en:"Whiskey, cola"}},
-daiquiri:{name:{ru:"Дайкири",en:"Daiquiri"},price:"600 ₽",desc:{ru:"Ром, лайм, сироп",en:"Rum, lime, syrup"}},
-espresso_martini:{name:{ru:"Эспрессо Мартини",en:"Espresso Martini"},price:"600 ₽",desc:{ru:"Кофе, водка",en:"Coffee, vodka"}},
+{tab:"bar",cat:"bar",weight:"0.33",name:{ru:"Пиво (Чехия)",en:"Beer Czech"},price:"450 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"0.33",name:{ru:"Пиво (Германия)",en:"Beer Germany"},price:"450 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"0.33",name:{ru:"Пиво (Армения)",en:"Beer Armenia"},price:"300 ₽",desc:{ru:"",en:""}},
 
-cola:{name:{ru:"Coca Cola 0.33",en:"Coca Cola 0.33"},price:"280 ₽",desc:{ru:"",en:""}},
-water:{name:{ru:"Mever вода",en:"Mever water"},price:"150 ₽",desc:{ru:"0.5 л",en:"0.5 L"}},
-jermuk:{name:{ru:"Джермук",en:"Jermuk"},price:"250 ₽",desc:{ru:"газированная",en:"sparkling"}},
-compote:{name:{ru:"Компот армянский",en:"Compote"},price:"450 ₽",desc:{ru:"1 л",en:"1 L"}},
-mors:{name:{ru:"Морс",en:"Berry drink"},price:"90 / 350 ₽",desc:{ru:"клюквенный",en:"cranberry"}},
-lemonade:{name:{ru:"Лимонад армянский",en:"Lemonade"},price:"250 ₽",desc:{ru:"в ассортименте",en:"assorted"}},
+{tab:"bar",cat:"bar",weight:"",name:{ru:"Coca Cola 0.33",en:"Coca Cola 0.33"},price:"280 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"0.5",name:{ru:"Mever вода",en:"Mever water"},price:"150 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"",name:{ru:"Джермук",en:"Jermuk"},price:"250 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"1L",name:{ru:"Компот",en:"Compote"},price:"450 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"",name:{ru:"Морс",en:"Berry drink"},price:"90 / 350 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"",name:{ru:"Лимонад",en:"Lemonade"},price:"250 ₽",desc:{ru:"",en:""}},
 
-syrups:{name:{ru:"Сиропы",en:"Syrups"},price:"100 ₽",desc:{ru:"50 мл",en:"50 ml"}},
-milk:{name:{ru:"Молоко",en:"Milk"},price:"30 ₽",desc:{ru:"50 мл",en:"50 ml"}},
-cream:{name:{ru:"Сливки",en:"Cream"},price:"50 ₽",desc:{ru:"50 мл",en:"50 ml"}},
-honey:{name:{ru:"Мёд",en:"Honey"},price:"120 ₽",desc:{ru:"50 мл",en:"50 ml"}},
-jam:{name:{ru:"Варенье армянское",en:"Jam"},price:"350 ₽",desc:{ru:"165 г",en:"165 g"}}
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Сиропы",en:"Syrups"},price:"100 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Молоко",en:"Milk"},price:"30 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Сливки",en:"Cream"},price:"50 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"50 ml",name:{ru:"Мёд",en:"Honey"},price:"120 ₽",desc:{ru:"",en:""}},
+{tab:"bar",cat:"bar",weight:"165 g",name:{ru:"Варенье",en:"Jam"},price:"350 ₽",desc:{ru:"",en:""}}
+
+];
+
+/* ================= RENDER ENGINE ================= */
+
+let lang="ru";
+let activeTab="lounge";
+
+function renderTabs(){
+const tabs=document.getElementById("tabs");
+tabs.innerHTML="";
+ui[lang].tabs.forEach(t=>{
+const btn=document.createElement("button");
+btn.className="tab"+(t.id===activeTab?" active":"");
+btn.textContent=t.label;
+btn.onclick=()=>{activeTab=t.id;render();};
+tabs.appendChild(btn);
+});
 }
-};
 
-function setLang(lang){
+function renderMenu(){
+const app=document.getElementById("app");
+app.innerHTML="";
 
-document.getElementById('logo').textContent = ui[lang].logo;
+const filtered=menu.filter(i=>i.tab===activeTab);
 
-document.querySelectorAll('.tab')[0].textContent = ui[lang].tabs[0];
-document.querySelectorAll('.tab')[1].textContent = ui[lang].tabs[1];
-document.querySelectorAll('.tab')[2].textContent = ui[lang].tabs[2];
-document.querySelectorAll('.tab')[3].textContent = ui[lang].tabs[3];
+const grouped={};
 
-document.querySelector('[data-cat="pizza"]').textContent = ui[lang].cats.pizza;
-document.querySelector('[data-cat="burgers"]').textContent = ui[lang].cats.burgers;
-document.querySelector('[data-cat="salads"]').textContent = ui[lang].cats.salads;
-document.querySelector('[data-cat="pasta"]').textContent = ui[lang].cats.pasta;
-document.querySelector('[data-cat="sets"]').textContent = ui[lang].cats.sets;
-document.querySelector('[data-cat="bar"]').textContent = ui[lang].cats.bar;
-
-document.querySelectorAll('.card').forEach(card=>{
-const id = card.dataset.id;
-if(menu[id]){
-card.querySelector('.name').textContent = menu[id].name[lang];
-card.querySelector('.desc').textContent = menu[id].desc[lang];
-card.querySelector('.price').textContent = menu[id].price;
-}
+filtered.forEach(i=>{
+if(!grouped[i.cat])grouped[i.cat]=[];
+grouped[i.cat].push(i);
 });
 
-document.getElementById('ruBtn').classList.toggle('active',lang==='ru');
-document.getElementById('enBtn').classList.toggle('active',lang==='en');
+Object.entries(grouped).forEach(([cat,items])=>{
+const section=document.createElement("div");
+
+const title=document.createElement("div");
+title.className="category-title";
+title.textContent=ui[lang].cats[cat]||cat;
+
+const grid=document.createElement("div");
+grid.className="grid";
+
+items.forEach(item=>{
+const card=document.createElement("div");
+card.className="card";
+
+card.innerHTML=`
+<div class="name">${item.name[lang]}</div>
+<div class="weight">${item.weight}</div>
+<div class="price">${item.price}</div>
+<div class="desc">${item.desc[lang]}</div>
+`;
+
+grid.appendChild(card);
+});
+
+section.appendChild(title);
+section.appendChild(grid);
+app.appendChild(section);
+});
 }
 
-setLang('ru');
+function render(){
+document.getElementById("logo").textContent="MENUA Lounge Bar";
+document.getElementById("ruBtn").classList.toggle("active",lang==="ru");
+document.getElementById("enBtn").classList.toggle("active",lang==="en");
 
+renderTabs();
+renderMenu();
+}
+
+function setLang(l){lang=l;render();}
+
+render();
 </script>
 
 </body>
